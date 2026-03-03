@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cp6woywcyiiia"]
+
+[ext_resource type="Script" uid="uid://db0qbtytgwu6l" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+
+[node name="MainMenu" type="Control" unique_id=974522277]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqorp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=61600200]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=547530807]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=640491187]
+layout_mode = 2
+text = "Housing: A Horror Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=2144845527]
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1526401356]
+layout_mode = 2
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1490286407]
+layout_mode = 2
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=744747839]
+layout_mode = 2
+text = "Exit"
+
+[node name="GameIcon" type="TextureRect" parent="HBoxContainer" unique_id=33780379]
+layout_mode = 2

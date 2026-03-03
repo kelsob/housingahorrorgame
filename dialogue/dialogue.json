@@ -1,0 +1,19 @@
+{
+	"bed_sleep": {
+		"text": "Go to sleep?",
+		"choices": [
+			{"text": "Yes", "id": "sleep"},
+			{"text": "No", "id": "cancel"}
+		]
+	},
+	"bed_day": {
+		"text": "You can't sleep now — it's too bright outside."
+	},
+	"door_work": {
+		"text": "Go to work? (3 energy)",
+		"choices": [
+			{"text": "Yes", "id": "go"},
+			{"text": "No", "id": "cancel"}
+		]
+	}
+}

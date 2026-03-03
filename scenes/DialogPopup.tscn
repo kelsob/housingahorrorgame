@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://6lo7sr6eseew"]
+
+[ext_resource type="Script" uid="uid://bo21etv3voesq" path="res://scripts/DialoguePopup.gd" id="1_hlc4q"]
+[ext_resource type="Texture2D" uid="uid://wsw3ybl0ka5q" path="res://assets/icons/frame-npr-1.png" id="1_puguv"]
+[ext_resource type="FontFile" uid="uid://cae6hslc8coid" path="res://assets/fonts/Amazon Ember Display.otf" id="2_1fi2o"]
+
+[node name="DialogPopup" type="Control" unique_id=881266219]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -76.0
+offset_right = 140.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hlc4q")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2053896917]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1311674336]
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=2122222853]
+layout_mode = 2
+texture = ExtResource("1_puguv")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1369987741]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=823596829]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=804336349]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.89134896, 0.8394301, 0.7222414, 1)
+theme_override_fonts/normal_font = ExtResource("2_1fi2o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=191917272]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1

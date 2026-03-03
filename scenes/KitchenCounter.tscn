@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bktpggjipkb7w"]
+
+[ext_resource type="PackedScene" uid="uid://477qqgr1ef6s" path="res://assets/glb/kitchen_counter.glb" id="1_v2kob"]
+
+[node name="KitchenCounter" type="Node3D" unique_id=207362284]
+
+[node name="kitchen_counter" parent="." unique_id=1871128273 instance=ExtResource("1_v2kob")]

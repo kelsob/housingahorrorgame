@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cwmwse0tkpnnh"]
+
+[ext_resource type="FontFile" uid="uid://cae6hslc8coid" path="res://assets/fonts/Amazon Ember Display.otf" id="1_2m70y"]
+[ext_resource type="Script" uid="uid://dieaprkci8pfh" path="res://scripts/DialogChoice.gd" id="1_f77fc"]
+
+[node name="DialogChoice" type="PanelContainer" unique_id=159333060]
+script = ExtResource("1_f77fc")
+
+[node name="Button" type="Button" parent="." unique_id=2098828440]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2m70y")
+text = "continue"
+flat = true

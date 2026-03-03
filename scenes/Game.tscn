@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b8vmhfc2vo41h"]
+
+[ext_resource type="Script" uid="uid://dshxuqktu8vp7" path="res://scripts/Game.gd" id="1_ibkli"]
+[ext_resource type="PackedScene" uid="uid://b1wgkxuy4i7n" path="res://scenes/Environment/Walls.tscn" id="2_78awf"]
+[ext_resource type="Script" uid="uid://csqdykbjs7jye" path="res://scripts/PlayerCamera.gd" id="2_qbsmt"]
+[ext_resource type="PackedScene" uid="uid://4gfytxk4f4wh" path="res://scenes/UI.tscn" id="3_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://b7qdmn1f2sptd" path="res://scenes/MainDoor.tscn" id="3_s0nni"]
+[ext_resource type="Script" uid="uid://r6nrfjhxr7m1" path="res://scripts/BedInteractable.gd" id="4_7ua8r"]
+[ext_resource type="PackedScene" uid="uid://3mjuhxcg0m7d" path="res://scenes/Themostat.tscn" id="4_aug50"]
+[ext_resource type="PackedScene" uid="uid://bktpggjipkb7w" path="res://scenes/KitchenCounter.tscn" id="6_g4kob"]
+[ext_resource type="PackedScene" uid="uid://bqo1bfltcsj20" path="res://scenes/PlayerRoomDoor.tscn" id="7_3xj3m"]
+[ext_resource type="PackedScene" uid="uid://ljwfe4h57oog" path="res://scenes/FoodDispenser.tscn" id="7_qy1jj"]
+[ext_resource type="PackedScene" uid="uid://telqlyg70jqn" path="res://scenes/CeilingLights.tscn" id="9_mcffj"]
+[ext_resource type="PackedScene" uid="uid://dvw5pyqphnvic" path="res://scenes/Lights.tscn" id="10_2rd6h"]
+[ext_resource type="PackedScene" uid="uid://yyj0uup7ociy" path="res://scenes/Pillow.tscn" id="10_7ua8r"]
+[ext_resource type="PackedScene" uid="uid://csaq3fg6a0wis" path="res://scenes/FadeOverlay.tscn" id="10_qy1jj"]
+
+[sub_resource type="Environment" id="Environment_mcffj"]
+background_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ve7bo"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o4u53"]
+data = PackedVector3Array(-0.9412507, 0.17389446, -0.42663157, -0.9412507, -0.17389432, 0.42663157, -0.9412507, -0.17389432, -0.42663157, -0.9412507, 0.17389446, -0.42663157, -0.9412507, 0.17389446, 0.42663157, -0.9412507, -0.17389432, 0.42663157, 0.94125056, 0.17389435, 0.42663157, -0.9412507, -0.17389432, 0.42663157, -0.9412507, 0.17389446, 0.42663157, 0.94125056, 0.17389435, 0.42663157, 0.94125056, -0.17389446, 0.42663157, -0.9412507, -0.17389432, 0.42663157, 0.94125056, -0.17389446, 0.42663157, -0.9412507, -0.17389432, -0.42663157, -0.9412507, -0.17389432, 0.42663157, 0.94125056, -0.17389446, 0.42663157, 0.94125056, -0.17389446, -0.42663157, -0.9412507, -0.17389432, -0.42663157, 0.94125056, -0.17389446, -0.42663157, 0.94125056, 0.17389435, 0.42663157, 0.94125056, 0.17389435, -0.42663157, 0.94125056, -0.17389446, -0.42663157, 0.94125056, -0.17389446, 0.42663157, 0.94125056, 0.17389435, 0.42663157, 0.94125056, 0.17389435, -0.42663157, -0.9412507, 0.17389446, 0.42663157, -0.9412507, 0.17389446, -0.42663157, 0.94125056, 0.17389435, -0.42663157, 0.94125056, 0.17389435, 0.42663157, -0.9412507, 0.17389446, 0.42663157, 0.94125056, -0.17389446, -0.42663157, -0.9412507, 0.17389446, -0.42663157, -0.9412507, -0.17389432, -0.42663157, 0.94125056, -0.17389446, -0.42663157, 0.94125056, 0.17389435, -0.42663157, -0.9412507, 0.17389446, -0.42663157)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_78awf"]
+radius = 0.2
+
+[node name="Game" type="Node" unique_id=341042196]
+script = ExtResource("1_ibkli")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=800934019]
+environment = SubResource("Environment_mcffj")
+
+[node name="GameObjects" type="Node3D" parent="." unique_id=1764217181]
+
+[node name="Environment" type="Node3D" parent="GameObjects" unique_id=1663346377]
+
+[node name="FloorMesh" type="MeshInstance3D" parent="GameObjects/Environment" unique_id=215694328]
+visible = false
+mesh = SubResource("PlaneMesh_ve7bo")
+
+[node name="Walls" parent="GameObjects/Environment" unique_id=25516369 instance=ExtResource("2_78awf")]
+
+[node name="Thermostat" parent="GameObjects/Environment" unique_id=1290073002 instance=ExtResource("4_aug50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.559, 1.7, 0.72)
+
+[node name="Bed" type="Node3D" parent="GameObjects/Environment" unique_id=174727301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8884717, 0.17329967, -0.8479436)
+script = ExtResource("4_7ua8r")
+
+[node name="bed2" type="Node3D" parent="GameObjects/Environment/Bed" unique_id=333096262]
+
+[node name="bed-col" type="MeshInstance3D" parent="GameObjects/Environment/Bed/bed2" unique_id=685494101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35711938, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GameObjects/Environment/Bed/bed2/bed-col" unique_id=1327978889]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameObjects/Environment/Bed/bed2/bed-col/StaticBody3D" unique_id=201609228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06141585, 0)
+shape = SubResource("ConcavePolygonShape3D_o4u53")
+
+[node name="KitchenCounter" parent="GameObjects/Environment" unique_id=207362284 instance=ExtResource("6_g4kob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9943416, 0.3338284, 3.8050294)
+
+[node name="FoodDispenser" parent="GameObjects/Environment" unique_id=574142813 instance=ExtResource("7_qy1jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9990176, 1.2677464, 3.9114976)
+
+[node name="PlayerRoomDoor" parent="GameObjects/Environment" unique_id=125892338 instance=ExtResource("7_3xj3m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.3938632, 1.219525, 0.13175827)
+
+[node name="MainDoor" parent="GameObjects/Environment" unique_id=995661715 instance=ExtResource("3_s0nni")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8227925, 1.22, 0.686359)
+
+[node name="CeilingLights" parent="GameObjects/Environment" unique_id=135151585 instance=ExtResource("9_mcffj")]
+
+[node name="Pillow" parent="GameObjects/Environment" unique_id=349488217 instance=ExtResource("10_7ua8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5419044, 0.70272005, -0.7901063)
+
+[node name="Lights" parent="GameObjects" unique_id=1683408743 instance=ExtResource("10_2rd6h")]
+
+[node name="PlayerBody" type="CharacterBody3D" parent="." unique_id=570877737]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.3448482, 1, 0.65501523)
+script = ExtResource("2_qbsmt")
+move_speed = 2.0
+
+[node name="PlayerCamera" type="Camera3D" parent="PlayerBody" unique_id=1242120291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="PlayerBody/PlayerCamera" unique_id=1427642659]
+target_position = Vector3(0, 0, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBody" unique_id=1249662338]
+shape = SubResource("CapsuleShape3D_78awf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=536332207]
+
+[node name="UI" parent="CanvasLayer" unique_id=1465196653 instance=ExtResource("3_cpr0p")]
+visible = false
+
+[node name="FadeOverlay" parent="." unique_id=820377981 instance=ExtResource("10_qy1jj")]

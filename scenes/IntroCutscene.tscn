@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dl38ld2g6abm1"]
+
+[ext_resource type="Script" uid="uid://c2kfs4bpprsjx" path="res://scripts/IntroCutscene.gd" id="1_fgsq1"]
+[ext_resource type="Texture2D" uid="uid://d33jro54r1ul2" path="res://assets/images/initial-game-load-image.jpg" id="2_872o4"]
+[ext_resource type="PackedScene" uid="uid://csaq3fg6a0wis" path="res://scenes/FadeOverlay.tscn" id="3_nuwxb"]
+
+[node name="IntroCutscene" type="Control" unique_id=120475187]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgsq1")
+letter_text = "\"Dear Prime- Citizen #0842-JG,
+
+CONGRATULATIONS!
+
+We are thrilled to inform you that your current residence will be DECOMMISSIONED
+in exactly [ONE] [DAYS] as part of the Greater Guelph Region's infrastructure improvement
+initiative: [SUPER-HIGHWAY STRUCTURAL SUPPORT STRUT 741B]!
+
+Your current residence will soon play a critical role in being demolished to make way]
+for a 72-lane hyperloop, exclusively available to Prime+ citizens. Upgrade to Prime+
+citizenship today to unlock the benefits of same-day hyperloop access, exclusive perks,
+and priority housing upgrades!
+
+You have been pre-selected for alternative accommodation in PRIME- GIGAPLEX 9,
+AtlasCo’s flagship value housing megastructure. In addition to this, please accept this
+voucher for one day's free occupancy fee! Your new accommodation awaits you:
+
+Tower: Prime- Gigaplex 9
+Floor: 87
+Unit: 216
+
+Welcome to the future of living!\""
+text_start_delay = 0.35
+chars_per_second = 22.5
+
+[node name="BackgroundImage" type="TextureRect" parent="." unique_id=91422523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_872o4")
+
+[node name="FadeOverlay" parent="." unique_id=820377981 instance=ExtResource("3_nuwxb")]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=233533488]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=820917881]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LetterLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer" unique_id=1209925702]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.79801434, 0.71032417, 0.48569393, 1)
+theme_override_colors/font_outline_color = Color(0.13725491, 0.18431373, 0.24313726, 1)
+theme_override_constants/outline_size = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

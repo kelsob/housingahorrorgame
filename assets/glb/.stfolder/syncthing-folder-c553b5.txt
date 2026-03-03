@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: vanqr-fsdtv
+created: 2026-03-02T14:53:04-05:00

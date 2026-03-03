@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://544ta215tnv3"]
+
+[ext_resource type="Script" uid="uid://cl50bw0jkjw1m" path="res://scripts/player_information_panel_ui.gd" id="1_sgx2t"]
+
+[node name="PlayerInformationPanelUI" type="Control" unique_id=1940707914]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sgx2t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1673209198]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=462759912]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -78.0
+offset_right = 192.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=757127787]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1600651567]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Prime- Citizen "
+
+[node name="PlayerIDNumberLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=902399791]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "#45832769"
+
+[node name="PlayerNameLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1154181545]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Ben Kelso"
+
+[node name="PrimePlusCitizenButton" type="Button" parent="VBoxContainer" unique_id=1343017164]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+disabled = true
+text = "UPGRADE TO PRIME+ CITIZENSHIP TODAY - $10,000"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1284391699]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2" unique_id=616333579]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1537165977]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Rent Due Today: "
+
+[node name="RentDueLabel" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=55069408]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "0 A"
+
+[node name="PayRentButton" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=815113183]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "PAY NOW"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1229325919]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=2095392650]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=588228411]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Atlas Balance:"
+
+[node name="BalanceLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=124584747]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "0 A"
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1238141740]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Citizen Score:"
+
+[node name="CitizenScoreLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1918433950]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "12.76"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1255188113]
+layout_mode = 2
+
+[node name="CurrentDateLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=223185361]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Current Date"
+
+[node name="WeatherLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1088078938]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Weather: SUNNY"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=1932762355]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer3" unique_id=1993403346]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer" unique_id=868998515]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "Energy:"
+
+[node name="CurrentEnergyLabel" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer" unique_id=618067760]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "0"
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer" unique_id=2123261608]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "/"
+
+[node name="MaxEnergyLabel" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer" unique_id=1740956012]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "10"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer" unique_id=238929962]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer4" unique_id=1045512814]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer4/HBoxContainer" unique_id=630776366]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "STRIKES: "
+
+[node name="StrikesLabel" type="Label" parent="VBoxContainer/MarginContainer4/HBoxContainer" unique_id=112890226]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+text = "I"

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://6n0ia0rdnd7d"]
+
+[ext_resource type="Script" uid="uid://dwqrkhvvvtexb" path="res://scripts/ThermostatUI.gd" id="1_ukng4"]
+[ext_resource type="Texture2D" uid="uid://dfevcpcklgbnu" path="res://assets/icons/thermostat-base.png" id="2_kunxn"]
+[ext_resource type="Texture2D" uid="uid://ci4oooc1o8dyw" path="res://assets/icons/themostat-nub.png" id="3_uxtcj"]
+[ext_resource type="Texture2D" uid="uid://bnejkquo5r155" path="res://assets/icons/thermostat-progress.png" id="4_2fu1f"]
+[ext_resource type="Texture2D" uid="uid://kwqf8as11xdv" path="res://assets/icons/day-icon.png" id="5_72dhm"]
+
+[node name="ThermostatUI" type="Control" unique_id=24060573]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ukng4")
+
+[node name="TemperatureLabel" type="Label" parent="." unique_id=1823802728]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -117.5
+offset_right = 331.0
+offset_bottom = 117.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 148
+text = "80°"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1296563802]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -123.0
+offset_right = -122.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_vertical = 4
+texture = ExtResource("2_kunxn")
+
+[node name="NubTexture" type="TextureRect" parent="TextureRect" unique_id=1255802577]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_uxtcj")
+
+[node name="ThermostatProgress" type="TextureProgressBar" parent="TextureRect" unique_id=1521914196]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 58.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("4_2fu1f")
+
+[node name="DayNightIcon" type="TextureRect" parent="." unique_id=249046309]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 124.0
+offset_bottom = 147.0
+texture = ExtResource("5_72dhm")
