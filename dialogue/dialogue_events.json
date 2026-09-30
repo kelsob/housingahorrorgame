@@ -1,0 +1,32 @@
+{
+    "game_start": {
+        "0": [
+            "thought_day0_intro"
+        ]
+    },
+    "day_start": {
+        "1": [
+            "thought_wakeup_day_1"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+    },
+    "arrive_home": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+    },
+    "street_level_arrivals": {
+        "1": [
+            "door_arrival_rico_delgado_intro"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+    }
+}

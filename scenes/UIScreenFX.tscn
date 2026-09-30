@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://2qv3chwmc31b"]
+
+[ext_resource type="Shader" uid="uid://8if8gro3km6b" path="res://shaders/intercom_ui_combined_fx.gdshader" id="1_fkhjk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2oi8"]
+shader = ExtResource("1_fkhjk")
+shader_parameter/chromatic_aberration_strength = 0.00999999977648
+shader_parameter/blur_strength = 0.50000002375
+shader_parameter/fisheye_strength = 0.0
+shader_parameter/fisheye_zoom = 1.0
+shader_parameter/fisheye_center = Vector2(0.5, 0.5)
+shader_parameter/scanline_strength = 0.25
+shader_parameter/scanline_density = 1440.00006536
+shader_parameter/scanline_speed = 0.150000007125
+shader_parameter/long_scanline_strength = 0.1330000063175
+shader_parameter/long_scanline_thickness = 0.010000000475
+shader_parameter/long_scanline_speed = 0.10000000475
+shader_parameter/overlay_alpha = 0.50000002375
+
+[node name="FX" type="Control" unique_id=1598697701]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fisheye2" type="ColorRect" parent="." unique_id=637575103]
+material = SubResource("ShaderMaterial_v2oi8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2

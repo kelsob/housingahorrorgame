@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://4gfytxk4f4wh"]
 
 [ext_resource type="Script" uid="uid://v5th5fknfu3c" path="res://scripts/UI.gd" id="1_dj8aq"]
-[ext_resource type="Texture2D" uid="uid://bi81irm2ypyst" path="res://assets/icons/currency.png" id="2_5en4g"]
-[ext_resource type="Texture2D" uid="uid://bygoqksqtmwge" path="res://assets/icons/energy.png" id="3_ua6yw"]
+[ext_resource type="FontFile" uid="uid://c8r30ca4jbwlb" path="res://assets/fonts/Phosphate_Fixed_Solid.ttf" id="3_xpksx"]
 [ext_resource type="PackedScene" uid="uid://6lo7sr6eseew" path="res://scenes/DialogPopup.tscn" id="4_ua6yw"]
+[ext_resource type="Texture2D" uid="uid://b55p1sqd6mbsm" path="res://assets/icons/center-dot.png" id="5_24e4x"]
+[ext_resource type="Script" uid="uid://dw64aw1siq8lk" path="res://scripts/HoldConfirmPrompt.gd" id="6_3wlde"]
 
 [node name="UI" type="Control" unique_id=1465196653]
 layout_mode = 3
@@ -14,117 +15,235 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dj8aq")
 
-[node name="CurrencyContainer" type="PanelContainer" parent="." unique_id=69913324]
-layout_mode = 1
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 62.0
-offset_bottom = 48.0
-
-[node name="MarginContainer" type="MarginContainer" parent="CurrencyContainer" unique_id=1890050358]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CurrencyContainer/MarginContainer" unique_id=1657130691]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CurrencyContainer/MarginContainer/HBoxContainer" unique_id=494351494]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 2
-texture = ExtResource("2_5en4g")
-
-[node name="CurrencyLabel" type="Label" parent="CurrencyContainer/MarginContainer/HBoxContainer" unique_id=1029329363]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0"
-
-[node name="EnergyContainer" type="PanelContainer" parent="." unique_id=1896925358]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -107.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = 48.0
-grow_horizontal = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="EnergyContainer" unique_id=1085937290]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="EnergyContainer/MarginContainer" unique_id=909006241]
-layout_mode = 2
-
-[node name="CurrentEnergyLabel" type="Label" parent="EnergyContainer/MarginContainer/HBoxContainer" unique_id=816604066]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "10"
-
-[node name="Label2" type="Label" parent="EnergyContainer/MarginContainer/HBoxContainer" unique_id=1635942136]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "/"
-
-[node name="MaxEnergyLabel" type="Label" parent="EnergyContainer/MarginContainer/HBoxContainer" unique_id=1135747337]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "10"
-
-[node name="TextureRect" type="TextureRect" parent="EnergyContainer/MarginContainer/HBoxContainer" unique_id=982770250]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 2
-texture = ExtResource("3_ua6yw")
-
-[node name="DayContainer" type="PanelContainer" parent="." unique_id=1610401718]
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=581227131]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -29.5
-offset_top = 8.0
-offset_right = 29.5
-offset_bottom = 48.0
+offset_left = -460.0
+offset_top = 12.0
+offset_right = 460.0
+offset_bottom = 33.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="DayContainer" unique_id=1913316660]
+[node name="DateTimeContainer" type="HBoxContainer" parent="TopBar" unique_id=2013795847]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+size_flags_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DayContainer/MarginContainer" unique_id=2013795847]
+[node name="Label" type="Label" parent="TopBar/DateTimeContainer" unique_id=1549396418]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="DayContainer/MarginContainer/HBoxContainer" unique_id=1549396418]
-layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
 text = "Day"
+horizontal_alignment = 1
 
-[node name="CurrentDayLabel" type="Label" parent="DayContainer/MarginContainer/HBoxContainer" unique_id=434956979]
+[node name="CurrentDayLabel" type="Label" parent="TopBar/DateTimeContainer" unique_id=434956979]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
 text = "1"
+horizontal_alignment = 1
 
-[node name="TextureRect" type="ColorRect" parent="." unique_id=2043414554]
+[node name="Label2" type="Label" parent="TopBar/DateTimeContainer" unique_id=737518369]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = " — "
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="TopBar/DateTimeContainer" unique_id=2097739413]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "Morning"
+horizontal_alignment = 1
+
+[node name="EnergyContainer" type="HBoxContainer" parent="TopBar" unique_id=909006241]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MaxEnergyLabel2" type="Label" parent="TopBar/EnergyContainer" unique_id=373338213]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "Vitality:  "
+horizontal_alignment = 1
+
+[node name="CurrentEnergyLabel" type="Label" parent="TopBar/EnergyContainer" unique_id=816604066]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "10"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TopBar/EnergyContainer" unique_id=1635942136]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "/"
+horizontal_alignment = 1
+
+[node name="MaxEnergyLabel" type="Label" parent="TopBar/EnergyContainer" unique_id=1135747337]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "10"
+horizontal_alignment = 1
+
+[node name="CurrencyContainer" type="HBoxContainer" parent="TopBar" unique_id=1657130691]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="TopBar/CurrencyContainer" unique_id=1986251482]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "$:  "
+horizontal_alignment = 1
+
+[node name="CurrencyLabel" type="Label" parent="TopBar/CurrencyContainer" unique_id=1029329363]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "0"
+horizontal_alignment = 1
+
+[node name="BottomBar" type="HBoxContainer" parent="." unique_id=1645540057]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -460.0
+offset_top = -33.0
+offset_right = 460.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="BottomBar" unique_id=1991292880]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "Atlasco. Life Assitant  — "
+horizontal_alignment = 1
+
+[node name="CitizenIDContainer" type="HBoxContainer" parent="BottomBar" unique_id=1620419469]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Label" type="Label" parent="BottomBar/CitizenIDContainer" unique_id=665124827]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "ID:  "
+horizontal_alignment = 1
+
+[node name="CitizenScoreLabel" type="Label" parent="BottomBar/CitizenIDContainer" unique_id=987616789]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "#0842321967370122-BKCF"
+horizontal_alignment = 1
+
+[node name="CitizenScoreContainer" type="HBoxContainer" parent="BottomBar" unique_id=435037268]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="BottomBar/CitizenScoreContainer" unique_id=1637958972]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "Citizen Score:  "
+horizontal_alignment = 1
+
+[node name="CitizenScoreLabel" type="Label" parent="BottomBar/CitizenScoreContainer" unique_id=1640650611]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+text = "C -"
+horizontal_alignment = 1
+
+[node name="Crosshair" type="TextureRect" parent="." unique_id=531854595]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -0.5
-offset_right = 0.5
-offset_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 28.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_24e4x")
 
 [node name="DialogPopup" parent="." unique_id=881266219 instance=ExtResource("4_ua6yw")]
 visible = false
 layout_mode = 1
+offset_left = 120.0
+offset_top = -152.0
+offset_right = 632.0
+offset_bottom = -56.0
+
+[node name="HoldConfirmPrompt" type="Control" parent="." unique_id=314441232]
+visible = false
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -212.0
+offset_right = 64.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_3wlde")
+
+[node name="PromptLabel" type="Label" parent="HoldConfirmPrompt" unique_id=2065306480]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="HoldConfirmPrompt" unique_id=784721319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_xpksx")

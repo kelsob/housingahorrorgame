@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b0by8dam0beyx"]
+
+[ext_resource type="PackedScene" uid="uid://ds8h6m0vba8ik" path="res://scenes/HallwayDoorScreenUI.tscn" id="1_0pcq5"]
+[ext_resource type="Script" uid="uid://cq1dtnrdbdoyr" path="res://scripts/DoorScreen.gd" id="1_qejcs"]
+
+[node name="DoorScreen" type="SubViewport" unique_id=342786591]
+script = ExtResource("1_qejcs")
+
+[node name="HallwayDoorScreenUI" parent="." unique_id=554741875 instance=ExtResource("1_0pcq5")]

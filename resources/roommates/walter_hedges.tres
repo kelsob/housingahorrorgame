@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://bijg7764i45qb"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "walter_hedges"
+display_name = "Walter Hedges"
+roommate_type = 2
+demand_description = "Living room couch sovereign. TV is his religion. Pays every other day when he remembers."
+unmet_demands_to_leave = 1
+night_event_chance = 0.15
+conflict_stability_penalty = 8

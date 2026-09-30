@@ -1,25 +1,28 @@
 [gd_scene format=3 uid="uid://b8vmhfc2vo41h"]
 
 [ext_resource type="Script" uid="uid://dshxuqktu8vp7" path="res://scripts/Game.gd" id="1_ibkli"]
-[ext_resource type="PackedScene" uid="uid://b1wgkxuy4i7n" path="res://scenes/Environment/Walls.tscn" id="2_78awf"]
 [ext_resource type="Script" uid="uid://csqdykbjs7jye" path="res://scripts/PlayerCamera.gd" id="2_qbsmt"]
+[ext_resource type="Script" uid="uid://1wjqnm54tnbu" path="res://scripts/HallwayEnvironment.gd" id="2_sv1m6"]
 [ext_resource type="PackedScene" uid="uid://4gfytxk4f4wh" path="res://scenes/UI.tscn" id="3_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://b7qdmn1f2sptd" path="res://scenes/MainDoor.tscn" id="3_s0nni"]
 [ext_resource type="Script" uid="uid://r6nrfjhxr7m1" path="res://scripts/BedInteractable.gd" id="4_7ua8r"]
-[ext_resource type="PackedScene" uid="uid://3mjuhxcg0m7d" path="res://scenes/Themostat.tscn" id="4_aug50"]
-[ext_resource type="PackedScene" uid="uid://bktpggjipkb7w" path="res://scenes/KitchenCounter.tscn" id="6_g4kob"]
 [ext_resource type="PackedScene" uid="uid://bqo1bfltcsj20" path="res://scenes/PlayerRoomDoor.tscn" id="7_3xj3m"]
+[ext_resource type="PackedScene" uid="uid://b6qqavuj5kil8" path="res://scenes/WaterFeeder.tscn" id="7_kyk2p"]
 [ext_resource type="PackedScene" uid="uid://ljwfe4h57oog" path="res://scenes/FoodDispenser.tscn" id="7_qy1jj"]
 [ext_resource type="PackedScene" uid="uid://telqlyg70jqn" path="res://scenes/CeilingLights.tscn" id="9_mcffj"]
 [ext_resource type="PackedScene" uid="uid://dvw5pyqphnvic" path="res://scenes/Lights.tscn" id="10_2rd6h"]
 [ext_resource type="PackedScene" uid="uid://yyj0uup7ociy" path="res://scenes/Pillow.tscn" id="10_7ua8r"]
 [ext_resource type="PackedScene" uid="uid://csaq3fg6a0wis" path="res://scenes/FadeOverlay.tscn" id="10_qy1jj"]
+[ext_resource type="PackedScene" uid="uid://cy6pvmlq5qidc" path="res://scenes/BloodGod.tscn" id="11_r7sob"]
+[ext_resource type="PackedScene" uid="uid://dfxxjwpqqdekk" path="res://scenes/PlayerApartmentWalls.tscn" id="12_45i86"]
+[ext_resource type="PackedScene" uid="uid://c87d2sexxrr5" path="res://scenes/Intercom.tscn" id="12_vjgi4"]
+[ext_resource type="PackedScene" uid="uid://c8gjq017y7p1d" path="res://scenes/HallwaySectionTilable.tscn" id="14_sv1m6"]
+[ext_resource type="PackedScene" uid="uid://bwdqj0kqv31lr" path="res://scenes/StreetLevel.tscn" id="14_vjgi4"]
+[ext_resource type="PackedScene" uid="uid://bqamieftepobh" path="res://scenes/HallwayElevatorSection.tscn" id="15_sv1m6"]
 
 [sub_resource type="Environment" id="Environment_mcffj"]
 background_mode = 1
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ve7bo"]
-size = Vector2(100, 100)
+sdfgi_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o4u53"]
 data = PackedVector3Array(-0.9412507, 0.17389446, -0.42663157, -0.9412507, -0.17389432, 0.42663157, -0.9412507, -0.17389432, -0.42663157, -0.9412507, 0.17389446, -0.42663157, -0.9412507, 0.17389446, 0.42663157, -0.9412507, -0.17389432, 0.42663157, 0.94125056, 0.17389435, 0.42663157, -0.9412507, -0.17389432, 0.42663157, -0.9412507, 0.17389446, 0.42663157, 0.94125056, 0.17389435, 0.42663157, 0.94125056, -0.17389446, 0.42663157, -0.9412507, -0.17389432, 0.42663157, 0.94125056, -0.17389446, 0.42663157, -0.9412507, -0.17389432, -0.42663157, -0.9412507, -0.17389432, 0.42663157, 0.94125056, -0.17389446, 0.42663157, 0.94125056, -0.17389446, -0.42663157, -0.9412507, -0.17389432, -0.42663157, 0.94125056, -0.17389446, -0.42663157, 0.94125056, 0.17389435, 0.42663157, 0.94125056, 0.17389435, -0.42663157, 0.94125056, -0.17389446, -0.42663157, 0.94125056, -0.17389446, 0.42663157, 0.94125056, 0.17389435, 0.42663157, 0.94125056, 0.17389435, -0.42663157, -0.9412507, 0.17389446, 0.42663157, -0.9412507, 0.17389446, -0.42663157, 0.94125056, 0.17389435, -0.42663157, 0.94125056, 0.17389435, 0.42663157, -0.9412507, 0.17389446, 0.42663157, 0.94125056, -0.17389446, -0.42663157, -0.9412507, 0.17389446, -0.42663157, -0.9412507, -0.17389432, -0.42663157, 0.94125056, -0.17389446, -0.42663157, 0.94125056, 0.17389435, -0.42663157, -0.9412507, 0.17389446, -0.42663157)
@@ -33,60 +36,79 @@ script = ExtResource("1_ibkli")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=800934019]
 environment = SubResource("Environment_mcffj")
 
-[node name="GameObjects" type="Node3D" parent="." unique_id=1764217181]
+[node name="PlayerApartment" type="Node3D" parent="." unique_id=514657967]
 
-[node name="Environment" type="Node3D" parent="GameObjects" unique_id=1663346377]
+[node name="Environment" type="Node3D" parent="PlayerApartment" unique_id=1663346377]
 
-[node name="FloorMesh" type="MeshInstance3D" parent="GameObjects/Environment" unique_id=215694328]
-visible = false
-mesh = SubResource("PlaneMesh_ve7bo")
-
-[node name="Walls" parent="GameObjects/Environment" unique_id=25516369 instance=ExtResource("2_78awf")]
-
-[node name="Thermostat" parent="GameObjects/Environment" unique_id=1290073002 instance=ExtResource("4_aug50")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.559, 1.7, 0.72)
-
-[node name="Bed" type="Node3D" parent="GameObjects/Environment" unique_id=174727301]
+[node name="Bed" type="Node3D" parent="PlayerApartment/Environment" unique_id=174727301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8884717, 0.17329967, -0.8479436)
 script = ExtResource("4_7ua8r")
+interact_range_extra = 1.0
 
-[node name="bed2" type="Node3D" parent="GameObjects/Environment/Bed" unique_id=333096262]
+[node name="bed2" type="Node3D" parent="PlayerApartment/Environment/Bed" unique_id=333096262]
 
-[node name="bed-col" type="MeshInstance3D" parent="GameObjects/Environment/Bed/bed2" unique_id=685494101]
+[node name="bed-col" type="MeshInstance3D" parent="PlayerApartment/Environment/Bed/bed2" unique_id=685494101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35711938, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="GameObjects/Environment/Bed/bed2/bed-col" unique_id=1327978889]
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayerApartment/Environment/Bed/bed2/bed-col" unique_id=1327978889]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameObjects/Environment/Bed/bed2/bed-col/StaticBody3D" unique_id=201609228]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerApartment/Environment/Bed/bed2/bed-col/StaticBody3D" unique_id=201609228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06141585, 0)
 shape = SubResource("ConcavePolygonShape3D_o4u53")
 
-[node name="KitchenCounter" parent="GameObjects/Environment" unique_id=207362284 instance=ExtResource("6_g4kob")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9943416, 0.3338284, 3.8050294)
+[node name="FoodDispenser" parent="PlayerApartment/Environment" unique_id=574142813 instance=ExtResource("7_qy1jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7850484, 1.6136854, 3.9114976)
 
-[node name="FoodDispenser" parent="GameObjects/Environment" unique_id=574142813 instance=ExtResource("7_qy1jj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9990176, 1.2677464, 3.9114976)
+[node name="WaterFeeder" parent="PlayerApartment/Environment" unique_id=1369268107 instance=ExtResource("7_kyk2p")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2533092, 2.5361784, 3.9691308)
 
-[node name="PlayerRoomDoor" parent="GameObjects/Environment" unique_id=125892338 instance=ExtResource("7_3xj3m")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.3938632, 1.219525, 0.13175827)
+[node name="PlayerRoomDoor" parent="PlayerApartment/Environment" unique_id=125892338 instance=ExtResource("7_3xj3m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.394, 0, 0.132)
 
-[node name="MainDoor" parent="GameObjects/Environment" unique_id=995661715 instance=ExtResource("3_s0nni")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8227925, 1.22, 0.686359)
+[node name="MainDoor" parent="PlayerApartment/Environment" unique_id=995661715 instance=ExtResource("3_s0nni")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.010441, 0, 0.686)
+visible = false
+unit_number = "216"
+occupant_code = "#0842321967370122-BKCF"
 
-[node name="CeilingLights" parent="GameObjects/Environment" unique_id=135151585 instance=ExtResource("9_mcffj")]
+[node name="CeilingLights" parent="PlayerApartment/Environment" unique_id=135151585 instance=ExtResource("9_mcffj")]
 
-[node name="Pillow" parent="GameObjects/Environment" unique_id=349488217 instance=ExtResource("10_7ua8r")]
+[node name="Pillow" parent="PlayerApartment/Environment" unique_id=349488217 instance=ExtResource("10_7ua8r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5419044, 0.70272005, -0.7901063)
+
+[node name="BloodGod" parent="PlayerApartment/Environment" unique_id=1173089447 instance=ExtResource("11_r7sob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54392964, 1.4581974, -1.2265466)
+
+[node name="Intercom" parent="PlayerApartment/Environment" unique_id=703634963 instance=ExtResource("12_vjgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1479092, 1.5896807, 0.086621106)
+
+[node name="PlayerApartmentWalls" parent="PlayerApartment" unique_id=491207016 instance=ExtResource("12_45i86")]
+
+[node name="GameObjects" type="Node3D" parent="." unique_id=1764217181]
+
+[node name="HallwayEnvironment" type="Node3D" parent="GameObjects" unique_id=1303459691]
+script = ExtResource("2_sv1m6")
+
+[node name="HallwaySectionPlayerApartment" parent="GameObjects/HallwayEnvironment" unique_id=887547196 instance=ExtResource("14_sv1m6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85, -0.013, 1.48)
+
+[node name="HallwayElevatorSection" parent="GameObjects/HallwayEnvironment" unique_id=1944875070 instance=ExtResource("15_sv1m6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85, -0.013, 8.22)
 
 [node name="Lights" parent="GameObjects" unique_id=1683408743 instance=ExtResource("10_2rd6h")]
 
+[node name="StreetLevel" parent="GameObjects" unique_id=1192084047 instance=ExtResource("14_vjgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.390507, 0)
+
 [node name="PlayerBody" type="CharacterBody3D" parent="." unique_id=570877737]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.3448482, 1, 0.65501523)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.3414593, 1, 0.68644744)
 script = ExtResource("2_qbsmt")
-move_speed = 2.0
+interact_range = 1.0
+move_speed = 2.25
+sprint_speed = 4.0
 
 [node name="PlayerCamera" type="Camera3D" parent="PlayerBody" unique_id=1242120291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65450466, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerBody/PlayerCamera" unique_id=1427642659]
 target_position = Vector3(0, 0, -1)

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="RoommateDaySchedule" format=3 uid="uid://c8loxv6o50ed5"]
+
+[ext_resource type="Script" uid="uid://hjhwfyo08qhj" path="res://scripts/RoommateDaySchedule.gd" id="1"]
+
+[resource]
+script = ExtResource("1")

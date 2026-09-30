@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://dyo5bxofky4hr"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "mel_ortega"
+display_name = "Mel Ortega"
+roommate_type = 16
+demand_description = "Shows up, leaves, knocks again next week like you owe them a slot. Pool flag for recurring door encounters."
+nightly_theft = 3
+night_event_chance = 0.3
+conflict_stability_penalty = 8

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwdqj0kqv31lr"]
+
+[ext_resource type="Script" uid="uid://bi4s7fq7laqga" path="res://scripts/StreetLevel.gd" id="1_folb3"]
+
+[node name="StreetLevel" type="Node3D" unique_id=1192084047]
+script = ExtResource("1_folb3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1681318716]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, 0)
+shadow_enabled = true
+
+[node name="StreetFeedAnchor" type="Marker3D" parent="." unique_id=1415840530]
+transform = Transform3D(-4.371139e-08, -0.17364818, 0.9848077, 0, 0.9848077, 0.17364818, -1, 7.590403e-09, -4.304731e-08, 0, 1.5, 0)
+
+[node name="CharacterPositionMarker3D" type="Node3D" parent="." unique_id=530732004]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, 0, 0)

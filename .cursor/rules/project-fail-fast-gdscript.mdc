@@ -1,0 +1,14 @@
+---
+description: Enforce fail-fast GDScript style for this project
+alwaysApply: true
+---
+
+# Fail-Fast GDScript Rules
+
+- Prefer direct onready node references and direct typed calls.
+- Do not add defensive wrappers that hide setup mistakes.
+- Never use `has_method()`, `has_signal()`, or `Dictionary.has()` as defensive flow control.
+- Never use `get_node()` or `get_node_or_null()` for routine scene wiring.
+- Do not use `Object.get()` for node/property lookup indirection.
+- Assume required scene nodes and scripts are configured correctly; let missing setup fail loudly.
+- When a required reference already exists as an onready variable, use that variable directly.

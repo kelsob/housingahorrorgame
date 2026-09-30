@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0dutupmme2yc"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 1, 1, 0)
+roughness = 0.81
+subsurf_scatter_strength = 1.0
+refraction_enabled = true

@@ -5,6 +5,8 @@ extends Resource
 
 class_name RoommateData
 
+## Stable id for dialogue, saves, and encounter logic (e.g. "rico_food_vendor").
+@export var character_id: String = ""
 ## Display name.
 @export var display_name: String = "Roommate"
 ## Archetype that defines behavior.
@@ -23,13 +25,30 @@ class_name RoommateData
 @export var night_event_chance: float = 0.2
 ## Stability penalty when in conflict with another roommate.
 @export var conflict_stability_penalty: int = 10
-## If true, departs when thermostat is HIGH.
-@export var leaves_on_high_heat: bool = false
+## Voice-generator settings for this character's door dialogue.
+@export var voice_enabled: bool = true
+## Subfolder under res://addons/godot-voice-generator/sound/alphabet/.
+@export_enum("high", "med", "low", "lowest") var voice_alphabet_pitch: String = "med"
+@export_range(0.1, 4.0, 0.01) var voice_main_pitch_scale: float = 1.0
+@export_range(0.0, 2.0, 0.01) var voice_random_pitch: float = 1.0
+@export_range(0.0, 24.0, 0.1) var voice_random_volume_offset_db: float = 0.0
 
 enum RoommateType {
-	LOUD_NIGHT,           ## Reduces sleep
-	THIEF,                ## Steals money at night
-	TV_ADDICT,            ## Leaves if TV sold
-	SEDUCTIVE_MANIPULATOR,## Risky advantage (placeholder)
-	SUSPICIOUS_FOOD_VENDOR## Cheaper food, hidden downside (placeholder)
+	LOUD_NIGHT,              ## Reduces sleep (adjoining room / bathroom)
+	THIEF,                   ## Steals money at night (hallway)
+	TV_ADDICT,               ## Leaves if TV sold (living room)
+	SEDUCTIVE_MANIPULATOR,   ## Your room, pay quirks
+	SUSPICIOUS_FOOD_VENDOR,  ## Kitchen, cheap questionable food
+	GAMBLER,                 ## Living room, gambling
+	VIOLENT_NONPAYER,        ## Bathroom, violent, stops paying
+	FOOD_THIEF,              ## Kitchen, steals food pellets
+	BROKE,                   ## No money
+	CAT_OWNER,               ## Kitchen, has a cat
+	NIGERIAN_PRINCE,         ## Does not move in; investment bit (special handling later)
+	FALSE_NORMAL,            ## Seems fine, hidden danger
+	SNITCH,                  ## Reports you / instability
+	HOT_COLD,                ## Mood swings
+	USURPER_HELPER,          ## Helpful until they take your room (fail state)
+	ORGAN_THIEF,             ## Medical horror
+	RECURRING_VISITOR,       ## Can show up at the door more than once
 }

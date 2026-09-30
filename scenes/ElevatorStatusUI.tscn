@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bb5uxwlw5h1s4"]
+
+[ext_resource type="Script" path="res://scripts/ElevatorStatusUI.gd" id="1_2f5v4"]
+[ext_resource type="PackedScene" uid="uid://2qv3chwmc31b" path="res://scenes/UIScreenFX.tscn" id="2_lcr77"]
+
+[node name="ElevatorStatusUI" type="Control" unique_id=1407166204]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2f5v4")
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1150304180]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+
+[node name="FX" parent="." unique_id=1598697701 instance=ExtResource("2_lcr77")]
+layout_mode = 1

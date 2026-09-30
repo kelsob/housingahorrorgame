@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://dar4hkokvypui"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "casey_bloom"
+display_name = "Casey Bloom"
+roommate_type = 7
+demand_description = "Kitchen chaos agent. Distracts you when the pellet drops — hands faster than yours."
+nightly_theft = 5
+night_event_chance = 0.35
+conflict_stability_penalty = 9

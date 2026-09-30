@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://beh4am1vsuwp2"]
+
+[ext_resource type="FontFile" uid="uid://c8r30ca4jbwlb" path="res://assets/fonts/Phosphate_Fixed_Solid.ttf" id="1_k3npa"]
+[ext_resource type="Texture2D" uid="uid://cvkmd1f4yvfej" path="res://assets/icons/call-dot.png" id="2_8s4dv"]
+
+[node name="AtlasCoLogo" type="Control" unique_id=1784181555]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BasePink" type="Label" parent="." unique_id=2052862780]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -10.5
+offset_right = 36.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.36862746, 0.7764706, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("1_k3npa")
+text = "AtlasCo"
+horizontal_alignment = 1
+
+[node name="BaseBlue" type="Label" parent="." unique_id=1259221479]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -10.5
+offset_right = 36.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.21176471, 0.6039216, 0.8745098, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("1_k3npa")
+text = "AtlasCo"
+horizontal_alignment = 1
+
+[node name="PeriodPink" type="Label" parent="." unique_id=1926660224]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -10.5
+offset_right = 70.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.36862746, 0.7764706, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("1_k3npa")
+text = "."
+horizontal_alignment = 1
+
+[node name="PeriodBlue" type="Label" parent="." unique_id=172474356]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -10.5
+offset_right = 70.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.21176471, 0.6039216, 0.8745098, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("1_k3npa")
+text = "."
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=478954123]
+visible = false
+z_index = 4
+position = Vector2(34.999996, 3.9999998)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_8s4dv")
+
+[node name="OrbShadow" type="Sprite2D" parent="." unique_id=1284355636]
+visible = false
+z_index = 4
+position = Vector2(34.999996, 3.9999998)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_8s4dv")

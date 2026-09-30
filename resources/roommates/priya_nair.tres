@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://s6uilb82ndbv"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "priya_nair"
+display_name = "Priya Nair"
+roommate_type = 9
+demand_description = "Kitchen + cat named Chairman Meow. Hair on everything."
+night_event_chance = 0.25
+conflict_stability_penalty = 7

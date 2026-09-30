@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://buymweyqiscci"]
+
+[ext_resource type="Script" path="res://scripts/ElevatorCallUI.gd" id="1_8qn8m"]
+[ext_resource type="PackedScene" uid="uid://2qv3chwmc31b" path="res://scenes/UIScreenFX.tscn" id="2_ye56x"]
+
+[node name="ElevatorCallUI" type="Control" unique_id=2070978480]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qn8m")
+
+[node name="CallLabel" type="Label" parent="." unique_id=88548794]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "call"
+horizontal_alignment = 1
+
+[node name="FX" parent="." unique_id=1598697701 instance=ExtResource("2_ye56x")]
+layout_mode = 1

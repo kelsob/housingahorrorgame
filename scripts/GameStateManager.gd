@@ -23,14 +23,14 @@ var current_phase: Phase = Phase.MORNING:
 			current_phase = value
 			phase_changed.emit(current_phase)
 
-var _current_day: int = 1
-## Current day (1–5). Game ends after day 5. Day changes only on Night → Morning.
+var _current_day: int = 0
+## Current day (0–5). Day 0 is the move-in night. Day changes only on Night -> Morning.
 var current_day: int:
 	get:
 		return _current_day
 	set(value):
 		if _current_day != value:
-			_current_day = clampi(value, 1, total_days)
+			_current_day = clampi(value, 0, total_days)
 			day_changed.emit(_current_day)
 
 ## Total days to survive.
@@ -83,18 +83,17 @@ func _on_phase_changed(new_phase: Phase) -> void:
 		_go_to_game_over_screen()
 
 
-## Start a new game. Resets to Day 1, Morning and resets all managers.
+## Start a new game. Resets to Day 0, Night and resets all managers.
 func start_new_game() -> void:
 	did_win = false
 	game_over_reason = GameOverReason.UNKNOWN
-	_current_day = 1
-	current_phase = Phase.MORNING
+	_current_day = 0
+	current_phase = Phase.NIGHT
 	day_changed.emit(current_day)
 	EnergyManager.start_new_game()
 	WorkManager.start_new_game()
 	MoneyManager.start_new_game()
 	RoommateManager.start_new_game()
-	ThermostatManager.start_new_game()
 	FurnitureManager.start_new_game()
 	FoodManager.start_new_game()
 	_current_rent = base_rent
@@ -124,7 +123,7 @@ func set_rent(amount: int) -> void:
 
 ## Explicitly set the current day. Use for save/load or debugging.
 func set_day(day: int) -> void:
-	_current_day = clampi(day, 1, total_days)
+	_current_day = clampi(day, 0, total_days)
 	day_changed.emit(_current_day)
 
 

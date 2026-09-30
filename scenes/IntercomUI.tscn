@@ -1,0 +1,337 @@
+[gd_scene format=3 uid="uid://cy62uc1x4eeev"]
+
+[ext_resource type="Script" uid="uid://cklmynwjkinso" path="res://scripts/IntercomUI.gd" id="1_5wotq"]
+[ext_resource type="Texture2D" uid="uid://cvkmd1f4yvfej" path="res://assets/icons/call-dot.png" id="2_hlopp"]
+[ext_resource type="Texture2D" uid="uid://c0cwx6f0dmapu" path="res://assets/icons/idle-icon.png" id="2_tt5ub"]
+[ext_resource type="Texture2D" uid="uid://du5c3amuiwhgn" path="res://assets/icons/icon-frame.png" id="3_suay1"]
+[ext_resource type="Texture2D" uid="uid://cmd271qbt6t6h" path="res://assets/textures/frame.png" id="4_vmyaa"]
+[ext_resource type="FontFile" uid="uid://c8r30ca4jbwlb" path="res://assets/fonts/Phosphate_Fixed_Solid.ttf" id="5_j68dg"]
+[ext_resource type="Texture2D" uid="uid://i8ga23b4l7uu" path="res://assets/textures/frame-thin-filled-orange.png" id="8_tfqxx"]
+[ext_resource type="PackedScene" uid="uid://beh4am1vsuwp2" path="res://scenes/AnimatedLogo.tscn" id="9_4daqy"]
+[ext_resource type="Texture2D" uid="uid://c40fxv32hsph7" path="res://assets/textures/frame-thin-filled.png" id="9_6i0cc"]
+[ext_resource type="PackedScene" uid="uid://2qv3chwmc31b" path="res://scenes/UIScreenFX.tscn" id="9_e7bmn"]
+[ext_resource type="Script" uid="uid://ctm3o0o3hx5qf" path="res://addons/godot-voice-generator/voice_audio_stream_player.gd" id="10_6i0cc"]
+[ext_resource type="AudioStream" uid="uid://cettblhfgwn2w" path="res://addons/godot-voice-generator/sound/alphabet/high/a.wav" id="10_b2li8"]
+[ext_resource type="Script" uid="uid://y8qw6351laqu" path="res://scenes/CharacterDialogPanel.gd" id="10_v2oi8"]
+[ext_resource type="Texture2D" uid="uid://dbq5rq6mdq0f2" path="res://assets/textures/frame-thin-filled-blue.png" id="11_6i0cc"]
+[ext_resource type="Texture2D" uid="uid://b55p1sqd6mbsm" path="res://assets/icons/center-dot.png" id="15_e7bmn"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6i0cc"]
+streams_count = 1
+stream_0/stream = ExtResource("10_b2li8")
+
+[node name="IntercomUI" type="Control" unique_id=2018729355]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wotq")
+ui_burn_in_alpha = 0.035
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=761681141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 0.40784314, 0.6156863, 1)
+
+[node name="CharacterDialogPanel" type="NinePatchRect" parent="." unique_id=831517381]
+custom_minimum_size = Vector2(228, 80)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -203.0
+offset_right = 114.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_tfqxx")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("10_v2oi8")
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterDialogPanel" unique_id=878046720]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterDialogPanel/MarginContainer" unique_id=921920117]
+layout_mode = 2
+
+[node name="CharacterDialogLabel" type="RichTextLabel" parent="CharacterDialogPanel/MarginContainer/VBoxContainer" unique_id=1438083981]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterDialogPanel/MarginContainer/VBoxContainer" unique_id=852813751]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CharacterDialogPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1201504456]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("11_6i0cc")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="ResponseOptionLabel" type="RichTextLabel" parent="CharacterDialogPanel/MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect" unique_id=1847734779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CharacterDialogPanel/MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect" unique_id=75174428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CharacterDialogPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=128989607]
+custom_minimum_size = Vector2(106, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_6i0cc")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="ResponseOptionLabel" type="RichTextLabel" parent="CharacterDialogPanel/MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect2" unique_id=1041470909]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CharacterDialogPanel/MarginContainer/VBoxContainer/HBoxContainer/NinePatchRect2" unique_id=1891072827]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterDialogPanel" unique_id=759151968]
+stream = SubResource("AudioStreamRandomizer_6i0cc")
+script = ExtResource("10_6i0cc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1801238059]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -128.0
+offset_right = 242.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1561427741]
+custom_minimum_size = Vector2(452, 224)
+layout_mode = 2
+texture = ExtResource("4_vmyaa")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="FX" parent="." unique_id=1598697701 instance=ExtResource("9_e7bmn")]
+layout_mode = 1
+
+[node name="AtlasCoLogo" parent="." unique_id=1784181555 instance=ExtResource("9_4daqy")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 79.0
+offset_top = 164.0
+offset_right = 79.0
+offset_bottom = 164.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="RingingDots" type="HBoxContainer" parent="." unique_id=352162119]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 224.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+theme_override_constants/separation = 24
+
+[node name="Dot1" type="TextureRect" parent="RingingDots" unique_id=704561747]
+layout_mode = 2
+texture = ExtResource("2_hlopp")
+expand_mode = 2
+
+[node name="Dot2" type="TextureRect" parent="RingingDots" unique_id=423398142]
+layout_mode = 2
+texture = ExtResource("2_hlopp")
+expand_mode = 2
+
+[node name="Dot3" type="TextureRect" parent="RingingDots" unique_id=7141432]
+layout_mode = 2
+texture = ExtResource("2_hlopp")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="." unique_id=523909706]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -176.0
+offset_right = 244.0
+offset_bottom = -158.0
+grow_vertical = 0
+
+[node name="StatusDot" type="TextureRect" parent="Control" unique_id=1722586283]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_right = 40.0
+offset_bottom = 33.0
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_suay1")
+expand_mode = 2
+
+[node name="StatusDot" type="TextureRect" parent="Control/StatusDot" unique_id=1306682307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tt5ub")
+expand_mode = 4
+
+[node name="StateLabels" type="Control" parent="Control" unique_id=162821414]
+custom_minimum_size = Vector2(196, 18)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -9.0
+offset_right = 112.0
+offset_bottom = 9.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StateLabelActive" type="Label" parent="Control/StateLabels" unique_id=811597729]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_j68dg")
+text = "standby"
+
+[node name="StateLabelBurnin" type="Label" parent="Control/StateLabels" unique_id=26128772]
+modulate = Color(1, 1, 1, 0.08235294)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_j68dg")
+text = "idle"
+
+[node name="StateLabelBurnin2" type="Label" parent="Control/StateLabels" unique_id=327920547]
+modulate = Color(1, 1, 1, 0.08235294)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_j68dg")
+text = "ringing"
+
+[node name="StateLabelBurnin3" type="Label" parent="Control/StateLabels" unique_id=741008202]
+modulate = Color(1, 1, 1, 0.08235294)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_j68dg")
+text = "connected"
+
+[node name="Mouse" type="Sprite2D" parent="." unique_id=1413969186]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15_e7bmn")

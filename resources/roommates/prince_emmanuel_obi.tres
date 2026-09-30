@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://d223qb2wl8iy5"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "prince_emmanuel_obi"
+display_name = "Prince Emmanuel Obi"
+roommate_type = 10
+demand_description = "Never crosses the threshold. Wants YOU to invest in HIM. It pays off. (Probably.) Special encounter — not a normal tenant."
+unmet_demands_to_leave = 99
+night_event_chance = 0.0
+conflict_stability_penalty = 0

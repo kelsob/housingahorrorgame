@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://7dqmql2rgitj"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "greg_hull"
+display_name = "Greg Hull"
+roommate_type = 11
+demand_description = "Wears a normal shirt. Says normal things. Something in the kitchen is broken when he's happy."
+conflict_stability_penalty = 20

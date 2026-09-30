@@ -9,6 +9,54 @@ extends Node
 
 ## Default roommate definitions. Override or add via code.
 @export var default_roommates: Array[RoommateData] = []
+const DEFAULT_ROOMMATE_REGISTRY: Array[RoommateData] = [
+	preload("res://resources/roommates/rico_delgado.tres"),
+	preload("res://resources/roommates/marcus_webb.tres"),
+	preload("res://resources/roommates/dennis_kruk.tres"),
+	preload("res://resources/roommates/skylar_bass.tres"),
+	preload("res://resources/roommates/jordan_pike.tres"),
+	preload("res://resources/roommates/casey_bloom.tres"),
+	preload("res://resources/roommates/walter_hedges.tres"),
+	preload("res://resources/roommates/morgan_vale.tres"),
+	preload("res://resources/roommates/adrian_cross.tres"),
+	preload("res://resources/roommates/terry_ginsburg.tres"),
+	preload("res://resources/roommates/priya_nair.tres"),
+	preload("res://resources/roommates/prince_emmanuel_obi.tres"),
+	preload("res://resources/roommates/greg_hull.tres"),
+	preload("res://resources/roommates/denise_porter.tres"),
+	preload("res://resources/roommates/avery_quinn.tres"),
+	preload("res://resources/roommates/blair_kendrick.tres"),
+	preload("res://resources/roommates/silas_morrow.tres"),
+	preload("res://resources/roommates/mel_ortega.tres"),
+]
+const DEFAULT_RANDOM_POOL: Array[RoommateData] = [
+	preload("res://resources/roommates/rico_delgado.tres"),
+	preload("res://resources/roommates/marcus_webb.tres"),
+	preload("res://resources/roommates/dennis_kruk.tres"),
+	preload("res://resources/roommates/skylar_bass.tres"),
+	preload("res://resources/roommates/jordan_pike.tres"),
+	preload("res://resources/roommates/casey_bloom.tres"),
+	preload("res://resources/roommates/walter_hedges.tres"),
+	preload("res://resources/roommates/morgan_vale.tres"),
+	preload("res://resources/roommates/adrian_cross.tres"),
+	preload("res://resources/roommates/terry_ginsburg.tres"),
+	preload("res://resources/roommates/priya_nair.tres"),
+	preload("res://resources/roommates/greg_hull.tres"),
+	preload("res://resources/roommates/denise_porter.tres"),
+	preload("res://resources/roommates/avery_quinn.tres"),
+	preload("res://resources/roommates/blair_kendrick.tres"),
+	preload("res://resources/roommates/silas_morrow.tres"),
+	preload("res://resources/roommates/mel_ortega.tres"),
+]
+const DEFAULT_ENCOUNTER_SCHEDULE: RoommateEncounterSchedule = preload("res://resources/roommates/game_encounter_schedule.tres")
+## All RoommateData resources for schedule lookup (character_id → resource).
+@export var roommate_registry: Array[RoommateData] = DEFAULT_ROOMMATE_REGISTRY
+## Random door visitors are drawn from here. If empty, uses roommate_registry instead.
+@export var random_encounter_pool: Array[RoommateData] = DEFAULT_RANDOM_POOL
+## Per-day forced order + random counts. Create a RoommateEncounterSchedule resource in the inspector.
+@export var encounter_schedule: RoommateEncounterSchedule = DEFAULT_ENCOUNTER_SCHEDULE
+## If true, random picks skip characters already living here (matched by character_id).
+@export var random_exclude_active_roommates: bool = true
 ## Chance (0–1) for roommate conflict check per night.
 @export var conflict_check_chance: float = 0.15
 
@@ -46,7 +94,6 @@ var stability: int:
 
 func _ready() -> void:
 	GameStateManager.phase_changed.connect(_on_phase_changed)
-	ThermostatManager.thermostat_changed.connect(_on_thermostat_changed)
 	FurnitureManager.furniture_sold.connect(_on_furniture_sold)
 	_update_sleep_modifier()
 
@@ -60,11 +107,6 @@ func _on_phase_changed(new_phase: int) -> void:
 			_apply_financial_modifiers()
 			_trigger_night_events()
 			_check_conflicts()
-
-
-func _on_thermostat_changed(_new_setting: int) -> void:
-	_check_heat_departures()
-	_update_sleep_modifier()
 
 
 func _on_furniture_sold(furniture_type: int) -> void:
@@ -174,11 +216,10 @@ func _trigger_night_events() -> void:
 # -----------------------------------------------------------------------------
 
 func _update_sleep_modifier() -> void:
-	var base_mod: float = ThermostatManager.get_sleep_modifier()
 	var roommate_mod: float = 1.0
 	for r in _active_roommates:
 		roommate_mod *= r.data.sleep_modifier
-	EnergyManager.set_rest_multiplier(base_mod * roommate_mod)
+	EnergyManager.set_rest_multiplier(roommate_mod)
 
 
 # -----------------------------------------------------------------------------
@@ -227,17 +268,6 @@ func _check_furniture_departures(furniture_type: int) -> void:
 			return
 
 
-func _check_heat_departures() -> void:
-	if not ThermostatManager or not ThermostatManager.is_high_heat():
-		return
-	for i in range(_active_roommates.size() - 1, -1, -1):
-		var data: RoommateData = _active_roommates[i].data
-		if data.leaves_on_high_heat:
-			_active_roommates.remove_at(i)
-			roommate_departed.emit(data, "high_heat")
-			_update_sleep_modifier()
-
-
 # -----------------------------------------------------------------------------
 # Helpers: Create roommates by type
 # -----------------------------------------------------------------------------
@@ -261,6 +291,39 @@ static func create_roommate(type: RoommateData.RoommateType, name: String = "") 
 			rd.demand_description = "Needs attention"
 		RoommateData.RoommateType.SUSPICIOUS_FOOD_VENDOR:
 			rd.demand_description = "Needs kitchen access"
+		RoommateData.RoommateType.GAMBLER:
+			rd.demand_description = "Needs a flat surface to flip a rock"
+			rd.night_event_chance = 0.35
+		RoommateData.RoommateType.VIOLENT_NONPAYER:
+			rd.demand_description = "Bathroom adjacent; stops paying rent"
+			rd.conflict_stability_penalty = 25
+		RoommateData.RoommateType.FOOD_THIEF:
+			rd.demand_description = "Kitchen; distracts you, steals food"
+			rd.night_event_chance = 0.3
+		RoommateData.RoommateType.BROKE:
+			rd.demand_description = "Has no money; needs a break"
+			rd.nightly_bonus = 0
+		RoommateData.RoommateType.CAT_OWNER:
+			rd.demand_description = "Kitchen; needs space for a cat"
+		RoommateData.RoommateType.NIGERIAN_PRINCE:
+			rd.demand_description = "Investment opportunity (does not move in)"
+		RoommateData.RoommateType.FALSE_NORMAL:
+			rd.demand_description = "Seems totally normal"
+			rd.night_event_chance = 0.15
+		RoommateData.RoommateType.SNITCH:
+			rd.demand_description = "Keeps notes on everyone"
+			rd.conflict_stability_penalty = 15
+		RoommateData.RoommateType.HOT_COLD:
+			rd.demand_description = "Mood swings"
+		RoommateData.RoommateType.USURPER_HELPER:
+			rd.demand_description = "Too helpful"
+			rd.sleep_modifier = 1.1
+		RoommateData.RoommateType.ORGAN_THIEF:
+			rd.demand_description = "Medical supplies in the bathroom"
+			rd.nightly_theft = 20
+		RoommateData.RoommateType.RECURRING_VISITOR:
+			rd.demand_description = "Might knock again later"
+			rd.night_event_chance = 0.25
 	return rd
 
 
@@ -271,7 +334,92 @@ static func _default_name_for_type(type: RoommateData.RoommateType) -> String:
 		RoommateData.RoommateType.TV_ADDICT: return "Couch Potato"
 		RoommateData.RoommateType.SEDUCTIVE_MANIPULATOR: return "Charmer"
 		RoommateData.RoommateType.SUSPICIOUS_FOOD_VENDOR: return "Vendor"
+		RoommateData.RoommateType.GAMBLER: return "Gambler"
+		RoommateData.RoommateType.VIOLENT_NONPAYER: return "Rough Tenant"
+		RoommateData.RoommateType.FOOD_THIEF: return "Snack Thief"
+		RoommateData.RoommateType.BROKE: return "Broke Roommate"
+		RoommateData.RoommateType.CAT_OWNER: return "Cat Person"
+		RoommateData.RoommateType.NIGERIAN_PRINCE: return "Investor"
+		RoommateData.RoommateType.FALSE_NORMAL: return "Normal Guy"
+		RoommateData.RoommateType.SNITCH: return "Snitch"
+		RoommateData.RoommateType.HOT_COLD: return "Mood Swing"
+		RoommateData.RoommateType.USURPER_HELPER: return "Helpful Stranger"
+		RoommateData.RoommateType.ORGAN_THIEF: return "Quiet Doctor"
+		RoommateData.RoommateType.RECURRING_VISITOR: return "Return Visitor"
 	return "Roommate"
+
+
+# -----------------------------------------------------------------------------
+# Door encounter schedule (forced order + random pool)
+# -----------------------------------------------------------------------------
+
+## Build today's visitor queue: forced IDs in order, then random_encounter_count picks from the pool.
+func get_encounter_queue_for_day(day: int) -> Array[RoommateData]:
+	var queue: Array[RoommateData] = []
+	if encounter_schedule == null:
+		return queue
+	var day_cfg: RoommateDaySchedule = null
+	for ds in encounter_schedule.day_schedules:
+		if ds != null and ds.day == day:
+			day_cfg = ds
+			break
+	if day_cfg == null:
+		return queue
+	var reg := _registry_by_id()
+	var used_ids: Dictionary = {}
+	for id in day_cfg.forced_in_order:
+		var sid := String(id).strip_edges()
+		if sid.is_empty():
+			continue
+		if not reg.has(sid):
+			push_warning("[RoommateManager] Schedule day %s: unknown character_id '%s'" % [day, sid])
+			continue
+		queue.append(reg[sid])
+		used_ids[sid] = true
+	var want_random: int = day_cfg.random_encounter_count
+	if want_random <= 0:
+		return queue
+	var pool: Array[RoommateData] = _random_pool_source()
+	var candidates: Array[RoommateData] = []
+	for rd in pool:
+		if rd == null or String(rd.character_id).strip_edges().is_empty():
+			continue
+		if used_ids.has(rd.character_id):
+			continue
+		if random_exclude_active_roommates and _is_active_character_id(rd.character_id):
+			continue
+		candidates.append(rd)
+	candidates.shuffle()
+	var pick_count: int = mini(want_random, candidates.size())
+	for i in range(pick_count):
+		queue.append(candidates[i])
+	return queue
+
+
+func _registry_by_id() -> Dictionary:
+	var d: Dictionary = {}
+	for rd in roommate_registry:
+		if rd == null:
+			continue
+		var cid := String(rd.character_id).strip_edges()
+		if cid.is_empty():
+			continue
+		d[cid] = rd
+	return d
+
+
+func _random_pool_source() -> Array[RoommateData]:
+	if random_encounter_pool.size() > 0:
+		return random_encounter_pool.duplicate()
+	return roommate_registry.duplicate()
+
+
+func _is_active_character_id(character_id: String) -> bool:
+	for r in _active_roommates:
+		var d: RoommateData = r.data
+		if d and d.character_id == character_id:
+			return true
+	return false
 
 
 # -----------------------------------------------------------------------------

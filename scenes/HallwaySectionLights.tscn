@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://e68q0lf7khao"]
+
+[ext_resource type="PackedScene" uid="uid://cwt56pior4674" path="res://scenes/OverheadLight.tscn" id="1_hocy0"]
+
+[node name="HallwaySectionLights" type="Node3D" unique_id=922261473]
+
+[node name="OmniLight3D" parent="." unique_id=1630041498 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7901536, 2.636, -2.615831)
+
+[node name="OmniLight3D2" parent="." unique_id=658588087 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, -1.865831)
+
+[node name="OmniLight3D3" parent="." unique_id=1969183676 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, -1.115831)
+
+[node name="OmniLight3D4" parent="." unique_id=1867188247 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, -0.36583105)
+
+[node name="OmniLight3D5" parent="." unique_id=1409391060 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, 0.38416895)
+
+[node name="OmniLight3D6" parent="." unique_id=1993028741 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, 1.134169)
+
+[node name="OmniLight3D7" parent="." unique_id=409790891 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, 1.884169)
+
+[node name="OmniLight3D8" parent="." unique_id=1464208599 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 2.636, 2.634169)
+
+[node name="OmniLight3D9" parent="." unique_id=1654259018 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, -2.615831)
+
+[node name="OmniLight3D10" parent="." unique_id=464821784 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, -1.865831)
+
+[node name="OmniLight3D11" parent="." unique_id=41304809 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, -1.115831)
+
+[node name="OmniLight3D12" parent="." unique_id=34426665 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, -0.36583105)
+
+[node name="OmniLight3D13" parent="." unique_id=1891121622 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, 0.38416895)
+
+[node name="OmniLight3D14" parent="." unique_id=823642985 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, 1.134169)
+
+[node name="OmniLight3D15" parent="." unique_id=24967367 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, 1.884169)
+
+[node name="OmniLight3D16" parent="." unique_id=1549552503 instance=ExtResource("1_hocy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79, 2.636, 2.634169)

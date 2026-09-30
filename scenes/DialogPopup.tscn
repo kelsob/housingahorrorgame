@@ -1,69 +1,64 @@
 [gd_scene format=3 uid="uid://6lo7sr6eseew"]
 
 [ext_resource type="Script" uid="uid://bo21etv3voesq" path="res://scripts/DialoguePopup.gd" id="1_hlc4q"]
-[ext_resource type="Texture2D" uid="uid://wsw3ybl0ka5q" path="res://assets/icons/frame-npr-1.png" id="1_puguv"]
-[ext_resource type="FontFile" uid="uid://cae6hslc8coid" path="res://assets/fonts/Amazon Ember Display.otf" id="2_1fi2o"]
+[ext_resource type="PackedScene" uid="uid://0qhl1c46qxnu" path="res://scenes/AIFace.tscn" id="2_1fi2o"]
+[ext_resource type="Script" uid="uid://cm3l2f7li6qos" path="res://scripts/AIFaceFocusMask.gd" id="2_hlc4q"]
+[ext_resource type="FontFile" uid="uid://c8r30ca4jbwlb" path="res://assets/fonts/Phosphate_Fixed_Solid.ttf" id="4_f5po5"]
+[ext_resource type="AudioStream" uid="uid://5u8llf2cyi3r" path="res://addons/godot-voice-generator/sound/alphabet/high/e.wav" id="4_xqn11"]
+[ext_resource type="Script" uid="uid://ctm3o0o3hx5qf" path="res://addons/godot-voice-generator/voice_audio_stream_player.gd" id="5_f5po5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7sbeg"]
+streams_count = 1
+stream_0/stream = ExtResource("4_xqn11")
 
 [node name="DialogPopup" type="Control" unique_id=881266219]
-custom_minimum_size = Vector2(256, 128)
+custom_minimum_size = Vector2(512, 64)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -140.0
-offset_top = -76.0
-offset_right = 140.0
-offset_bottom = 108.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -128.0
+offset_right = 640.0
+offset_bottom = -32.0
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 script = ExtResource("1_hlc4q")
+float_distance = 16.0
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2053896917]
-layout_mode = 0
-offset_right = 280.0
-offset_bottom = 184.0
+[node name="AIFaceFocus" type="CanvasGroup" parent="." unique_id=815197]
+position = Vector2(12, 20)
+script = ExtResource("2_hlc4q")
+focus_radius_px = 38.0
+focus_feather_px = 24.0
+focus_center_offset_px = Vector2(10, -10)
+
+[node name="AIFace" parent="AIFaceFocus" unique_id=435930785 instance=ExtResource("2_1fi2o")]
+position = Vector2(-64, 40)
+scale = Vector2(0.2, 0.2)
+rest_yaw = -0.07499999999999996
+rest_pitch = 0.07499999999999996
+
+[node name="DialogueText" type="RichTextLabel" parent="." unique_id=804336349]
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 8.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1311674336]
-layout_mode = 2
-color = Color(0.6, 0.6, 0.6, 1)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=2122222853]
-layout_mode = 2
-texture = ExtResource("1_puguv")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1369987741]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=823596829]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=804336349]
-custom_minimum_size = Vector2(256, 128)
-layout_mode = 2
 theme_override_colors/default_color = Color(0.89134896, 0.8394301, 0.7222414, 1)
-theme_override_fonts/normal_font = ExtResource("2_1fi2o")
-horizontal_alignment = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_f5po5")
 vertical_alignment = 1
 
-[node name="ChoicesContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=191917272]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
+[node name="VoiceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1130251658]
+stream = SubResource("AudioStreamRandomizer_7sbeg")
+script = ExtResource("5_f5po5")

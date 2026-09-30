@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://haku05oadlyd"]
+
+[ext_resource type="PackedScene" uid="uid://0qhl1c46qxnu" path="res://scenes/AIFace.tscn" id="1_xee2h"]
+[ext_resource type="FontFile" uid="uid://c8r30ca4jbwlb" path="res://assets/fonts/Phosphate_Fixed_Solid.ttf" id="2_p4uv5"]
+[ext_resource type="PackedScene" uid="uid://2qv3chwmc31b" path="res://scenes/UIScreenFX.tscn" id="3_h2c74"]
+
+[node name="Control" type="Control" unique_id=20847314]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=682552400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9025971, 0, 0.12463967, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1636470054]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -64.0
+offset_right = 164.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="AIFace" parent="HBoxContainer" unique_id=2076943319 instance=ExtResource("1_xee2h")]
+position = Vector2(280, 64)
+scale = Vector2(0.25, 0.25)
+apply_idle_on_ready = true
+idle_arm_mood = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1184963994]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=295508745]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_p4uv5")
+text = "GOOD CITIZENS GIVE!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=567167491]
+custom_minimum_size = Vector2(164, 64)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_p4uv5")
+text = "DONATE NOW!"
+
+[node name="FX" parent="." unique_id=1598697701 instance=ExtResource("3_h2c74")]
+visible = true
+layout_mode = 1

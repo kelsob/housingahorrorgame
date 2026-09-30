@@ -1,6 +1,6 @@
 extends Node
 
-## Food pellet purchase system. Escalating price, daily cap, energy gain, spoilage on high heat.
+## Food pellet purchase system. Escalating price, daily cap, energy gain.
 ## Add as autoload (Project → Project Settings → Autoload) for global access.
 
 # -----------------------------------------------------------------------------
@@ -11,10 +11,6 @@ extends Node
 @export var prices_per_pellet: Array[float] = [5.0, 6.0, 7.0, 8.0, 9.0]
 ## Energy gained per pellet (via EnergyManager.eat).
 @export var energy_per_pellet: int = 1
-## Chance (0–1) that food spoils when heat is high. Set to 0 to disable.
-@export var spoilage_chance_high_heat: float = 0.0
-## Energy penalty when food spoils (negative = lose energy).
-@export var spoilage_energy_penalty: int = -1
 
 # -----------------------------------------------------------------------------
 # State
@@ -22,8 +18,8 @@ extends Node
 
 var _purchases_today: int = 0
 
-## Emitted when food spoils. Passes energy penalty applied.
-signal food_spoiled(energy_penalty: int)
+## Emitted when a pellet is eaten.
+signal pellet_eaten
 
 
 func _ready() -> void:
@@ -74,17 +70,10 @@ func dispense_pellet() -> bool:
 	return true
 
 
-## Eat a food pellet. Always gives energy. May emit food_spoiled for flavor/feedback.
+## Eat a food pellet. Always gives energy.
 func eat_pellet() -> void:
 	EnergyManager.gain(energy_per_pellet)
-	if _check_spoilage():
-		food_spoiled.emit(spoilage_energy_penalty)
-
-
-func _check_spoilage() -> bool:
-	if not ThermostatManager.is_high_heat():
-		return false
-	return randf() < spoilage_chance_high_heat
+	pellet_eaten.emit()
 
 
 ## Start a new game. Resets daily purchase count.

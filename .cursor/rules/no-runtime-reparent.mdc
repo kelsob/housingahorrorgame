@@ -1,0 +1,12 @@
+---
+description: Never reparent nodes at runtime — scene hierarchy is authoring-time only
+alwaysApply: true
+---
+
+# No Runtime Reparenting
+
+- Never call `remove_child` / `add_child` to move an existing scene node to a new parent at runtime.
+- Never "fix" editor hierarchy in `_ready` / `call_deferred` by reparenting.
+- If a node must live under a certain parent (e.g. `FeedCamera` under `SubViewport`), instruct the user to place it there in the scene and reference that path with `@onready`.
+- Runtime `add_child` is only for newly created ephemeral nodes (SFX players, temporary VFX, etc.), not for rearranging authored scene structure.
+- Prefer `call_deferred` only for safe tree timing (e.g. after enter tree), not as a cover for hierarchy moves.

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://bqdbkpo81vkt6"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "skylar_bass"
+display_name = "Skylar Bass"
+demand_description = "Adjoining wall to your room / bathroom side. Drums, podcasts, 2 AM vacuuming. You get less back from sleep."
+sleep_modifier = 0.55

@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://ljwfe4h57oog"]
 
 [ext_resource type="Script" uid="uid://c7w8wotyev2l8" path="res://scripts/FoodDispenser.gd" id="1_rph3f"]
+[ext_resource type="Material" uid="uid://3usndp8bj3gi" path="res://materials/MetalMaterial.tres" id="2_sye5m"]
 [ext_resource type="PackedScene" uid="uid://c72nn60gkdf80" path="res://assets/glb/food_dispenser_L-button.glb" id="2_tvssc"]
+[ext_resource type="Material" uid="uid://c0dutupmme2yc" path="res://materials/GlassMaterial.tres" id="4_8hnnv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tbyi"]
 resource_name = "food dispenser metal"
@@ -164,14 +166,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_row8o")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sye5m"]
-transparency = 1
-depth_draw_mode = 2
-albedo_color = Color(1, 1, 1, 0.039215688)
-roughness = 0.67
-refraction_enabled = true
-refraction_scale = 0.25
-
 [node name="FoodDispenser" type="Node3D" unique_id=574142813]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0006117523, 0, 0)
 script = ExtResource("1_rph3f")
@@ -180,6 +174,7 @@ script = ExtResource("1_rph3f")
 
 [node name="food dispenser chrome_002" type="MeshInstance3D" parent="food_dispenser" unique_id=14435450]
 mesh = SubResource("ArrayMesh_nvy03")
+surface_material_override/0 = ExtResource("2_sye5m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="food_dispenser" unique_id=828648940]
 shape = SubResource("ConcavePolygonShape3D_tvssc")
@@ -204,4 +199,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0071749687, 0.15123355, -0.
 
 [node name="Cylinder_016" type="MeshInstance3D" parent="food_dispenser_tube" unique_id=1115443936]
 mesh = SubResource("ArrayMesh_qyj2r")
-surface_material_override/0 = SubResource("StandardMaterial3D_sye5m")
+surface_material_override/0 = ExtResource("4_8hnnv")

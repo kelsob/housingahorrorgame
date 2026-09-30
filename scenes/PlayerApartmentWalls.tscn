@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dfxxjwpqqdekk"]
+
+[ext_resource type="PackedScene" uid="uid://cpg6ffmhouk2m" path="res://assets/glb/player_apartment_walls.glb" id="1_qjbyh"]
+
+[node name="PlayerApartmentWalls" unique_id=491207016 instance=ExtResource("1_qjbyh")]

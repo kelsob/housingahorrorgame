@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://b1jq5m1wdweju"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "dennis_kruk"
+display_name = "Dennis Kruk"
+roommate_type = 6
+demand_description = "Bathroom territory. Violent energy. Stops paying — you'll have to confront him eventually."
+unmet_demands_to_leave = 3
+sleep_modifier = 0.85
+night_event_chance = 0.25
+conflict_stability_penalty = 30

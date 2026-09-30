@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://dvw5pyqphnvic"]
 
 [ext_resource type="Script" uid="uid://b0y7su87t1c12" path="res://scripts/Lights.gd" id="1_3pqeu"]
+[ext_resource type="PackedScene" uid="uid://cwt56pior4674" path="res://scenes/OverheadLight.tscn" id="2_vdnxu"]
 
 [node name="Lights" type="Node3D" unique_id=1683408743]
 script = ExtResource("1_3pqeu")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=132823889]
+[node name="OmniLight3D" parent="." unique_id=1630041498 instance=ExtResource("2_vdnxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25125694, 2.6359608, -0.025577515)
-light_color = Color(0.54395115, 0.76697326, 0.8001079, 1)
-light_energy = 0.075
-light_size = 1.0
-shadow_enabled = true
-omni_range = 4.0
-omni_shadow_mode = 0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1953371335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9539771, 2.6359608, -0.025577515)

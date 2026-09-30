@@ -1,19 +1,332 @@
 {
-	"bed_sleep": {
-		"text": "Go to sleep?",
-		"choices": [
-			{"text": "Yes", "id": "sleep"},
-			{"text": "No", "id": "cancel"}
-		]
-	},
-	"bed_day": {
-		"text": "You can't sleep now — it's too bright outside."
-	},
-	"door_work": {
-		"text": "Go to work? (3 energy)",
-		"choices": [
-			{"text": "Yes", "id": "go"},
-			{"text": "No", "id": "cancel"}
-		]
-	}
+    "bed_sleep": {
+        "text": "Go to sleep?",
+        "choices": [
+            {
+                "text": "Yes",
+                "id": "sleep"
+            },
+            {
+                "text": "No",
+                "id": "cancel"
+            }
+        ]
+    },
+    "bed_day": {
+        "text": "You can't sleep now — it's too bright outside."
+    },
+    "door_work": {
+        "text": "Go to work? (3 energy)",
+        "choices": [
+            {
+                "text": "Yes",
+                "id": "go"
+            },
+            {
+                "text": "No",
+                "id": "cancel"
+            }
+        ]
+    },
+    "door_arrival_decision": {
+        "text": "Someone is knocking. Let them in?",
+        "choices": [
+            {
+                "text": "Let them in",
+                "id": "let_in",
+                "outcome": "let_in"
+            },
+            {
+                "text": "Send away",
+                "id": "send_away",
+                "outcome": "send_away"
+            }
+        ]
+    },
+    "door_arrival_skylar_bass_intro": {
+        "text": "Hey. Skylar Bass. I heard this place has paper-thin walls and no rules. You got room or what?",
+        "choices": [
+            {
+                "text": "Who even are you?",
+                "id": "ask",
+                "next": "door_arrival_skylar_bass_about"
+            },
+            {
+                "text": "Not doing this right now.",
+                "id": "cold",
+                "next": "door_arrival_skylar_bass_pushback"
+            }
+        ]
+    },
+    "door_arrival_skylar_bass_about": {
+        "text": "Name's Skylar. I drum at night. I pay late sometimes, but I pay. Let me crash here and we both survive another week.",
+        "choices": [
+            {
+                "text": "Can you actually pay on time?",
+                "id": "money",
+                "next": "door_arrival_skylar_bass_money"
+            },
+            {
+                "text": "What are you bringing into my apartment?",
+                "id": "rules",
+                "next": "door_arrival_skylar_bass_rules"
+            }
+        ]
+    },
+    "door_arrival_skylar_bass_pushback": {
+        "text": "Yeah, fair. But hear me out for ten seconds and then slam the door if you want.",
+        "choices": [
+            {
+                "text": "You have ten seconds. Talk.",
+                "id": "hear_out",
+                "next": "door_arrival_skylar_bass_about"
+            },
+            {
+                "text": "Nope. Goodbye.",
+                "id": "reject_hard",
+                "outcome": "send_away",
+                "final_text": "Right. Loud and clear. Hope your walls keep you company."
+            }
+        ]
+    },
+    "door_arrival_skylar_bass_money": {
+        "text": "I can do two nights up front right now. After that, I hustle gigs and settle up every morning. If I'm short, I make it up fast.",
+        "choices": [
+            {
+                "text": "And if you miss?",
+                "id": "miss",
+                "next": "door_arrival_skylar_bass_last_word"
+            },
+            {
+                "text": "That might work. What about noise?",
+                "id": "noise",
+                "next": "door_arrival_skylar_bass_rules"
+            }
+        ]
+    },
+    "door_arrival_skylar_bass_rules": {
+        "text": "One duffel bag. No guests. No touching your stuff. I keep to the bathroom side and stay out of your room.",
+        "choices": [
+            {
+                "text": "You break one rule and you're out.",
+                "id": "strict",
+                "next": "door_arrival_skylar_bass_last_word"
+            },
+            {
+                "text": "Not convincing enough.",
+                "id": "reject_after_rules",
+                "outcome": "send_away",
+                "final_text": "Your loss. Stay paranoid in there."
+            }
+        ]
+    },
+    "door_arrival_skylar_bass_last_word": {
+        "text": "Then that's the deal. I pay, I keep my head down, and I don't make your life harder. Your call.",
+        "choices": [
+            {
+                "text": "Fine. You're in.",
+                "id": "accept_final",
+                "outcome": "let_in",
+                "final_text": "Got it. I won't make you regret this."
+            },
+            {
+                "text": "No. Get lost.",
+                "id": "reject_final",
+                "outcome": "send_away",
+                "final_text": "Whatever. Door's your whole personality anyway."
+            }
+        ]
+    },
+    "door_arrival_rico_delgado_intro": {
+        "text": "Holy shit—someone's actually in there. The occupancy lamp just turned on. Please, don't hang up.",
+        "choices": [
+            {
+                "text": "How did you know I moved in?",
+                "id": "call_out",
+                "next": "door_arrival_rico_delgado_pitch"
+            },
+            {
+                "text": "Why are you at my door?",
+                "id": "direct",
+                "next": "door_arrival_rico_delgado_pitch"
+            }
+        ]
+    },
+    "door_arrival_rico_delgado_pitch": {
+        "text": "That lamp means a new tenant with a company badge. That's you. I can pay $4 a day. Closet, bathroom, floor—I don't care.",
+        "choices": [
+            {
+                "text": "$4 a day is nothing.",
+                "id": "legal",
+                "next": "door_arrival_rico_delgado_disclaimer"
+            },
+            {
+                "text": "And if I say no?",
+                "id": "pushback",
+                "next": "door_arrival_rico_delgado_counter"
+            }
+        ]
+    },
+    "door_arrival_rico_delgado_disclaimer": {
+        "text": "I know it's low. It's steady. I stay quiet, out of sight, out of your way.",
+        "choices": [
+            {
+                "text": "What happened to your last place?",
+                "id": "unbelievable",
+                "next": "door_arrival_rico_delgado_last_word"
+            },
+            {
+                "text": "No noise. No guests. No touching my stuff.",
+                "id": "price",
+                "next": "door_arrival_rico_delgado_last_word"
+            }
+        ]
+    },
+    "door_arrival_rico_delgado_counter": {
+        "text": "Then I keep walking till curfew sweep. You know what happens if you're outside too long. Everyone does.",
+        "choices": [
+            {
+                "text": "Don't say that here.",
+                "id": "reluctant",
+                "next": "door_arrival_rico_delgado_last_word"
+            },
+            {
+                "text": "No. Find another host.",
+                "id": "reject_now",
+                "outcome": "send_away",
+                "final_text": "Okay... yeah. I get it. I'll keep moving."
+            }
+        ]
+    },
+    "door_arrival_rico_delgado_last_word": {
+        "text": "$4 each morning. I keep my head down. You won't hear a peep from me. Please.",
+        "choices": [
+            {
+                "text": "Fine. You're in.",
+                "id": "accept_final",
+                "outcome": "let_in",
+                "final_text": "Thank you. I swear you'll barely notice me."
+            },
+            {
+                "text": "No deal. Move on.",
+                "id": "reject_final",
+                "outcome": "send_away",
+                "final_text": "Right. Sorry to bother you."
+            }
+        ]
+    },
+    "door_arrival_marcus_webb_intro": {
+        "text": "Marcus Webb. I run probabilistic budgeting. People say gambler because people fear math. I can cut your rent panic by half in one night.",
+        "choices": [
+            {
+                "text": "That sounds like gambling.",
+                "id": "call_gamble",
+                "next": "door_arrival_marcus_webb_pitch"
+            },
+            {
+                "text": "Keep talking.",
+                "id": "hear_more",
+                "next": "door_arrival_marcus_webb_pitch"
+            }
+        ]
+    },
+    "door_arrival_marcus_webb_pitch": {
+        "text": "I need floor space, one flat surface, and permission to ignore small losses while we pursue strategic recoveries. You keep upside. I keep a corner.",
+        "choices": [
+            {
+                "text": "Define small losses.",
+                "id": "define_losses",
+                "next": "door_arrival_marcus_webb_reveal"
+            },
+            {
+                "text": "You're trying to parasite my panic.",
+                "id": "accuse",
+                "next": "door_arrival_marcus_webb_counter"
+            }
+        ]
+    },
+    "door_arrival_marcus_webb_reveal": {
+        "text": "Small means recoverable. Usually. Also if I lose, morale drops, but statistically your future self thanks me for staying aggressive.",
+        "choices": [
+            {
+                "text": "You are a walking bad decision.",
+                "id": "bad_decision",
+                "next": "door_arrival_marcus_webb_last_word"
+            },
+            {
+                "text": "How often do you actually win?",
+                "id": "win_rate",
+                "next": "door_arrival_marcus_webb_last_word"
+            }
+        ]
+    },
+    "door_arrival_marcus_webb_counter": {
+        "text": "No, Atlasco parasited your panic. I'm just offering premium coping mechanics.",
+        "choices": [
+            {
+                "text": "That might be the worst sentence I've heard today.",
+                "id": "worst_sentence",
+                "next": "door_arrival_marcus_webb_last_word"
+            },
+            {
+                "text": "Not interested. Leave.",
+                "id": "reject_now",
+                "outcome": "send_away",
+                "final_text": "Understood. I'll go optimize my disappointment elsewhere."
+            }
+        ]
+    },
+    "door_arrival_marcus_webb_last_word": {
+        "text": "Look, certainty is expensive. Risk is affordable. Let me in and we can both pretend those are different things.",
+        "choices": [
+            {
+                "text": "All right. You're in.",
+                "id": "accept_final",
+                "outcome": "let_in",
+                "final_text": "Excellent choice. Statistically, you've improved your week."
+            },
+            {
+                "text": "No. Keep your odds.",
+                "id": "reject_final",
+                "outcome": "send_away",
+                "final_text": "Fair. Certainty has a vibe, I guess."
+            }
+        ]
+    },
+    "door_block_day1_hungry": {
+        "text": "I'm too hungry I really need to find some food before work or I won't make it."
+    },
+    "door_block_day1_too_early": {
+        "text": "it's still too early to go to work, let's not rush."
+    },
+    "thought_day1_intro": {
+        "text": "wow this bed is way better than my last one. I should check this place out before work."
+    },
+    "blood_extract_confirm": {
+        "text": "Donate blood for cash?",
+        "choices": [
+            {
+                "text": "Extract",
+                "id": "extract"
+            },
+            {
+                "text": "Cancel",
+                "id": "cancel"
+            }
+        ]
+    },
+    "blood_extract_cooldown": {
+        "text": "The extractor is still recalibrating. Wait a bit."
+    },
+    "blood_extract_pass_out": {
+        "text": "Everything goes white. Your knees buckle. You hit the floor before you can call for help."
+    },
+    "thought_day0_intro": {
+        "text": "Welcome to your new home! Take a good look around then go to bed, we want you rested for work tomorrow!",
+        "face_state": "talking"
+    },
+    "thought_wakeup_day_1": {
+        "text": "that's the best sleep I've had in a while... but I'm hungry. I should go get a snack pellet",
+        "complete_on": ["eat_pellet"]
+    }
 }

@@ -1,0 +1,952 @@
+[gd_scene format=3 uid="uid://0qhl1c46qxnu"]
+
+[ext_resource type="Script" uid="uid://5vxy2ikukg1c" path="res://scripts/ai_face.gd" id="2_48ora"]
+[ext_resource type="Texture2D" uid="uid://s6h3t155w8j1" path="res://assets/ai/leg-left-1.png" id="2_uud7f"]
+[ext_resource type="Texture2D" uid="uid://bvpuh1efanrr2" path="res://assets/ai/leg-right-1.png" id="3_34lmm"]
+[ext_resource type="Texture2D" uid="uid://dwycecrcbjvgu" path="res://assets/ai/landmass.png" id="3_yo25r"]
+[ext_resource type="Texture2D" uid="uid://cpldnyva0lali" path="res://assets/ai/landmass-blank.png" id="4_6k22r"]
+[ext_resource type="Texture2D" uid="uid://c4tbv3olhox3e" path="res://assets/ai/foot-left-1.png" id="4_im32d"]
+[ext_resource type="Texture2D" uid="uid://crth8bbqtp3xg" path="res://assets/ai/mouth-1.png" id="5_6k22r"]
+[ext_resource type="Texture2D" uid="uid://o17vvwdx4xtc" path="res://assets/ai/foot-right-1.png" id="5_rl05l"]
+[ext_resource type="Shader" uid="uid://nf5cu80qlgl4" path="res://shaders/ai_globe_feature_wrap.gdshader" id="6_0mwld"]
+[ext_resource type="Texture2D" uid="uid://bmihvskwqsvkb" path="res://assets/ai/left-eye-1.png" id="6_6k22r"]
+[ext_resource type="Texture2D" uid="uid://kpcgo1ejerkd" path="res://assets/ai/arm-left-1.png" id="6_snbjn"]
+[ext_resource type="Texture2D" uid="uid://f1jysdphqik6" path="res://assets/ai/right-eye-1.png" id="7_0mwld"]
+[ext_resource type="Texture2D" uid="uid://ds7j3tf6i71r3" path="res://assets/ai/arm-right-1.png" id="7_b8l16"]
+[ext_resource type="Texture2D" uid="uid://bxwgtgktn70hw" path="res://assets/ai/blush-1.png" id="8_0mwld"]
+[ext_resource type="Texture2D" uid="uid://ckia0jjatxoqm" path="res://assets/ai/hand-left-1.png" id="8_o35w5"]
+[ext_resource type="Texture2D" uid="uid://e4orkoghsla0" path="res://assets/ai/hand-right-1.png" id="9_27rad"]
+[ext_resource type="Texture2D" uid="uid://c0iud3qaqxfad" path="res://assets/ai/shadow.png" id="9_q6g6h"]
+[ext_resource type="Texture2D" uid="uid://n0xsxsr7de4o" path="res://assets/ai/highlight.png" id="10_igny8"]
+[ext_resource type="Texture2D" uid="uid://clqb8maphhmai" path="res://assets/ai/mouth-angry-1.png" id="11_7q2am"]
+[ext_resource type="Texture2D" uid="uid://fhyq4ak2epwo" path="res://assets/ai/mouth-open-2.png" id="12_b8l16"]
+[ext_resource type="Texture2D" uid="uid://b1lcvogi2ykx1" path="res://assets/ai/mouth-open-1.png" id="13_4c5n2"]
+[ext_resource type="Texture2D" uid="uid://cmvy0ryign4wf" path="res://assets/ai/mouth-happy-closed-1.png" id="13_8sukj"]
+[ext_resource type="Texture2D" uid="uid://bd0hrnmg85fm0" path="res://assets/ai/mouth-closed-1.png" id="14_adxu2"]
+[ext_resource type="Texture2D" uid="uid://dpikv104k4xo2" path="res://assets/ai/mouth-surprised-1.png" id="15_4n5mk"]
+[ext_resource type="Texture2D" uid="uid://qd6w5uvono5v" path="res://assets/ai/left-eye-happy-1.png" id="15_27rad"]
+[ext_resource type="Texture2D" uid="uid://8nosbtas4eai" path="res://assets/ai/mouth-open-wide.png" id="15_quckv"]
+[ext_resource type="Texture2D" uid="uid://dogjhrd6xncct" path="res://assets/ai/right-eye-happy-1.png" id="17_6bcuv"]
+[ext_resource type="Texture2D" uid="uid://boost5qvwwet8" path="res://assets/ai/dropshadow.png" id="17_snbjn"]
+[ext_resource type="Texture2D" uid="uid://3lr4hf622hgi" path="res://assets/ai/blush-angry-1.png" id="19_f513u"]
+[ext_resource type="Texture2D" uid="uid://c56yg61e3bplw" path="res://assets/ai/mouth-frown-2.png" id="19_tiec7"]
+[ext_resource type="Texture2D" uid="uid://bhxeu25ypfwhg" path="res://assets/ai/mouth-open-3.png" id="20_4a1o3"]
+[ext_resource type="Texture2D" uid="uid://4xs1ft8pifbc" path="res://assets/ai/eye-left-straight-1.png" id="21_tiec7"]
+[ext_resource type="Texture2D" uid="uid://b3b6asgaovlfg" path="res://assets/ai/eye-left-watery-1.png" id="23_4a1o3"]
+[ext_resource type="Texture2D" uid="uid://u66gh6rks826" path="res://assets/ai/eye-left-surprised-1.png" id="25_u86nh"]
+[ext_resource type="Texture2D" uid="uid://cx8t07nm226kd" path="res://assets/ai/eye-right-straight-1.png" id="26_xdme3"]
+[ext_resource type="Texture2D" uid="uid://btv5q88rlwlnv" path="res://assets/ai/eye-right-watery-1.png" id="28_vkjh1"]
+[ext_resource type="Texture2D" uid="uid://bo8jkvv5pxpwd" path="res://assets/ai/eye-right-surprised-1.png" id="30_7fm1j"]
+[ext_resource type="Texture2D" uid="uid://cen26pyqksnhe" path="res://assets/ai/eyebrow-left-angry-1.png" id="31_w3i1i"]
+[ext_resource type="Texture2D" uid="uid://d2qn0lgnwt2gk" path="res://assets/ai/eyebrow-left-concerned-1.png" id="32_oeas0"]
+[ext_resource type="Texture2D" uid="uid://c8njwxbq13jlg" path="res://assets/ai/eyebrow-left-surprised-1.png" id="33_a7xr6"]
+[ext_resource type="Texture2D" uid="uid://5ilardqsjs7t" path="res://assets/ai/eyebrow-right-angry-1.png" id="34_ra3u8"]
+[ext_resource type="Texture2D" uid="uid://n4eiwdcphj4n" path="res://assets/ai/eyebrow-right-concerned-1.png" id="35_7g8je"]
+[ext_resource type="Texture2D" uid="uid://dtstxf1rlnl2v" path="res://assets/ai/eyebrow-right-surprised-1.png" id="36_2ec3g"]
+[ext_resource type="Texture2D" uid="uid://b7wtoinikmh2r" path="res://assets/ai/eyebrow-left-agitated-1.png" id="36_u86nh"]
+[ext_resource type="Texture2D" uid="uid://biykfc3ras1ls" path="res://assets/ai/anger-lines-1.png" id="39_cn743"]
+[ext_resource type="Texture2D" uid="uid://cbb150efscw4m" path="res://assets/ai/eyebrow-right-agitated-1.png" id="40_xdme3"]
+
+[sub_resource type="Shader" id="Shader_rl05l"]
+code = "shader_type canvas_item;
+
+/// Circular globe fill. The Sprite2D itself should be a SQUARE on screen
+/// (that's just the round window). The wide land map is a separate texture
+/// assigned on the material as `land_tex` — it is NOT the sprite's Texture.
+///
+/// land_tex expectations:
+/// - Full 360° world strip (equirectangular), typically ~2x wider than tall.
+/// - Seamless left↔right if you want clean loops.
+/// - Transparent ocean → filled with ocean_color when use_ocean_fill is on.
+///
+/// Wrap model:
+/// - Texture width = 360° around the globe.
+/// - The front face shows ~180° (half the texture). The other half is on the back
+///   and appears when yaw spins.
+
+uniform sampler2D land_tex : source_color, filter_nearest, repeat_enable;
+uniform float yaw : hint_range(0.0, 1.0) = 0.0;
+/// Shifts latitude a little (look \"up\" / \"down\" the globe).
+uniform float pitch : hint_range(-1.0, 1.0) = 0.0;
+uniform float edge_softness : hint_range(0.0, 0.15) = 0.03;
+uniform bool use_ocean_fill = true;
+uniform vec4 ocean_color : source_color = vec4(0.18, 0.42, 0.62, 1.0);
+/// Darken toward the limb so the disc reads as a ball.
+uniform float limb_darken : hint_range(0.0, 1.0) = 0.35;
+/// 0 = flatter/cartoony foreshortening. 1 = full hemisphere squeeze at the edges.
+/// Does NOT change how much of the map is on the front (always ~180°).
+uniform float sphere_warp : hint_range(0.0, 1.0) = 0.45;
+/// Fraction of the texture width visible on the front face.
+/// 0.5 = correct globe (180° / half the world). 1.0 = plaster whole map on the front.
+uniform float front_world_fraction : hint_range(0.25, 1.0) = 0.5;
+uniform vec4 outline_color : source_color = vec4(0.08, 0.1, 0.14, 1.0);
+/// Ring width in UV radius (0 = off). Insets the globe so the stroke fits in-quad.
+uniform float outline_thickness : hint_range(0.0, 0.25) = 0.04;
+
+void fragment() {
+	vec2 p = UV * 2.0 - 1.0;
+	float r = length(p);
+	if (r > 1.0) {
+		discard;
+	}
+
+	float thickness = max(outline_thickness, 0.0);
+	float globe_r = max(1.0 - thickness, 0.001);
+	vec4 col = vec4(0.0);
+
+	if (r <= globe_r) {
+		vec2 pg = p / globe_r;
+		float r2 = dot(pg, pg);
+		float z_sphere = sqrt(max(0.0, 1.0 - r2));
+		float warp = clamp(sphere_warp, 0.0, 1.0);
+
+		// Soften depth for cartoon look WITHOUT widening map coverage.
+		// warp=0 → z stays high → less edge squeeze; coverage stays ~180°.
+		float z = mix(1.0, z_sphere, warp);
+		z = max(z, 0.001);
+
+		// Longitude in -1..1 across the front face, then scale by front_world_fraction.
+		// Sphere path: atan / (PI/2) maps the true hemisphere to -1..1.
+		// Flat path: raw x. Coverage is applied once after the mix.
+		float lon_unit = mix(pg.x, atan(pg.x, z) / (PI * 0.5), warp);
+		float coverage = clamp(front_world_fraction, 0.25, 1.0);
+		float u = fract(lon_unit * coverage * 0.5 + 0.5 + yaw);
+
+		float lat_unit = mix(pg.y, asin(clamp(pg.y, -1.0, 1.0)) / (PI * 0.5), warp);
+		float v = clamp(lat_unit * 0.5 + 0.5 + pitch, 0.0, 1.0);
+
+		vec4 land = texture(land_tex, vec2(u, v));
+		vec4 base = use_ocean_fill ? mix(ocean_color, land, land.a) : land;
+
+		float rg = sqrt(r2);
+		float edge_alpha = 1.0 - smoothstep(1.0 - edge_softness, 1.0, rg);
+		float shade = mix(1.0 - limb_darken * warp, 1.0, z_sphere);
+		col = vec4(base.rgb * shade, base.a * edge_alpha);
+	}
+
+	if (thickness > 0.0) {
+		float inner = smoothstep(globe_r - edge_softness, globe_r, r);
+		float outer = 1.0 - smoothstep(1.0 - edge_softness, 1.0, r);
+		float outline_mask = inner * outer;
+		col = mix(col, vec4(outline_color.rgb, 1.0), outline_mask * outline_color.a);
+	}
+
+	COLOR = col;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0mwld"]
+shader = SubResource("Shader_rl05l")
+shader_parameter/land_tex = ExtResource("3_yo25r")
+shader_parameter/yaw = 0.0
+shader_parameter/pitch = 0.0
+shader_parameter/edge_softness = 0.0
+shader_parameter/use_ocean_fill = true
+shader_parameter/ocean_color = Color(0.18431373, 0.60784316, 1, 1)
+shader_parameter/limb_darken = 0.206000009785
+shader_parameter/sphere_warp = 1.0
+shader_parameter/front_world_fraction = 0.5
+shader_parameter/outline_color = Color(0.043137256, 0.30980393, 0.7490196, 1)
+shader_parameter/outline_thickness = 0.04
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6g6h"]
+shader = ExtResource("6_0mwld")
+shader_parameter/wrap_enabled = true
+shader_parameter/yaw = 0.0
+shader_parameter/pitch = 0.0
+shader_parameter/edge_softness = 0.03
+shader_parameter/limb_darken = 0.0
+shader_parameter/sphere_warp = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/warp_radius = 0.732
+shader_parameter/decal_center = Vector2(0.5, 0.5)
+shader_parameter/decal_size = Vector2(0.5, 0.9)
+shader_parameter/backside_softness = 0.06
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igny8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7q2am")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6k22r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_8sukj")
+}],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_b8l16")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_4n5mk")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_quckv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6k22r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6k22r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_quckv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6k22r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_quckv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6k22r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_quckv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_quckv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6k22r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_adxu2")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_4a1o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b8l16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b8l16")
+}],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b8l16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c5n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4n5mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_quckv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tiec7")
+}],
+"loop": true,
+"name": &"talking_angry",
+"speed": 6.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_igny8"]
+shader = ExtResource("6_0mwld")
+shader_parameter/wrap_enabled = true
+shader_parameter/yaw = 1.0
+shader_parameter/pitch = 0.0
+shader_parameter/edge_softness = 0.03
+shader_parameter/limb_darken = 0.0
+shader_parameter/sphere_warp = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/warp_radius = 0.732
+shader_parameter/decal_center = Vector2(0.5, 0.5)
+shader_parameter/decal_size = Vector2(0.5, 0.9)
+shader_parameter/backside_softness = 0.06
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34lmm"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_f513u")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0mwld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0mwld")
+}],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0mwld")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0mwld")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0mwld")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_f513u")
+}],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_f513u")
+}],
+"loop": true,
+"name": &"talking_angry",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6k22r"]
+shader = ExtResource("6_0mwld")
+shader_parameter/wrap_enabled = true
+shader_parameter/yaw = 1.0
+shader_parameter/pitch = 0.0
+shader_parameter/edge_softness = 0.03
+shader_parameter/limb_darken = 0.35
+shader_parameter/sphere_warp = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/warp_radius = 0.732
+shader_parameter/decal_center = Vector2(0.5, 0.5)
+shader_parameter/decal_size = Vector2(0.5, 0.9)
+shader_parameter/backside_softness = 0.06
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uud7f"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_tiec7")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6k22r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_4a1o3")
+}],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_27rad")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_u86nh")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6k22r")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_tiec7")
+}],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_tiec7")
+}],
+"loop": true,
+"name": &"talking_angry",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s60jv"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_xdme3")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0mwld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_vkjh1")
+}],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_6bcuv")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_7fm1j")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0mwld")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_xdme3")
+}],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_xdme3")
+}],
+"loop": true,
+"name": &"talking_angry",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7q2am"]
+shader = ExtResource("6_0mwld")
+shader_parameter/wrap_enabled = true
+shader_parameter/yaw = 0.0
+shader_parameter/pitch = 0.0
+shader_parameter/edge_softness = 0.03
+shader_parameter/limb_darken = 0.0
+shader_parameter/sphere_warp = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/warp_radius = 0.732
+shader_parameter/decal_center = Vector2(0.5, 0.5)
+shader_parameter/decal_size = Vector2(0.5, 0.9)
+shader_parameter/backside_softness = 0.06
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n50ks"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_w3i1i")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_oeas0")
+}],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_a7xr6")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_u86nh")
+}],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_w3i1i")
+}],
+"loop": true,
+"name": &"talking_angry",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iwb5r"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_ra3u8")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_7g8je")
+}],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_2ec3g")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_xdme3")
+}],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_ra3u8")
+}],
+"loop": true,
+"name": &"talking_angry",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8sukj"]
+shader = ExtResource("6_0mwld")
+shader_parameter/wrap_enabled = true
+shader_parameter/yaw = 0.0
+shader_parameter/pitch = 0.0
+shader_parameter/edge_softness = 0.03
+shader_parameter/limb_darken = 0.0
+shader_parameter/sphere_warp = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/warp_radius = 0.732
+shader_parameter/decal_center = Vector2(0.5, 0.5)
+shader_parameter/decal_size = Vector2(0.5, 0.9)
+shader_parameter/backside_softness = 0.06
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wb3ey"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"agitated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_cn743")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"holdingbacktears",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"talking_agitated",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"talking_angry",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im32d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_q6g6h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rl05l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_igny8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AIFace" type="Node2D" unique_id=435930785]
+position = Vector2(552, 312)
+script = ExtResource("2_48ora")
+tears_arm_left_degrees = -70.0
+tears_arm_right_degrees = 70.0
+surprised_brow_pitch_pop = 0.14
+surprised_eye_pitch_pop = 0.045
+surprised_arm_left_degrees = 90.0
+surprised_arm_right_degrees = -90.0
+surprised_arm_raise_seconds = 0.1
+surprised_arm_hold_seconds = 0.025
+surprised_arm_fall_seconds = 0.5
+spin_peak_speed = 3.2
+spin_face_decel = 0.95
+spin_face_min_speed = 0.1
+arm_wave_left_degrees = -55.0
+arm_wave_right_degrees = -72.0
+arm_wave_wiggle_degrees = 18.0
+arm_wave_wiggle_count = 5
+arm_wave_raise_seconds = 1.0
+arm_wave_wiggle_seconds = 0.2
+arm_flap_degrees = 30.0
+arm_flap_seconds = 0.25
+arm_spin_pin_left_degrees = -90.0
+arm_spin_pin_right_degrees = -37.2
+
+[node name="LegLeft" type="Sprite2D" parent="." unique_id=909918489]
+texture = ExtResource("2_uud7f")
+
+[node name="LegRight" type="Sprite2D" parent="." unique_id=62563885]
+texture = ExtResource("3_34lmm")
+
+[node name="FootLeft" type="Sprite2D" parent="." unique_id=1730867814]
+texture = ExtResource("4_im32d")
+
+[node name="FootRight" type="Sprite2D" parent="." unique_id=290431676]
+position = Vector2(0, -2)
+texture = ExtResource("5_rl05l")
+
+[node name="ArmLeft" type="Sprite2D" parent="." unique_id=1123434392]
+position = Vector2(-192, 136)
+texture = ExtResource("6_snbjn")
+offset = Vector2(192, -136)
+
+[node name="ArmRight" type="Sprite2D" parent="." unique_id=105005986]
+position = Vector2(194, 135)
+texture = ExtResource("7_b8l16")
+offset = Vector2(-194, -137)
+
+[node name="FacePivot" type="Node2D" parent="." unique_id=414678613]
+rotation = -0.08552113
+
+[node name="Landmass" type="Sprite2D" parent="FacePivot" unique_id=1981783922]
+material = SubResource("ShaderMaterial_0mwld")
+position = Vector2(635.8548, 319.99997)
+texture = ExtResource("4_6k22r")
+offset = Vector2(-635.8548, -319.99997)
+
+[node name="Mouth" type="AnimatedSprite2D" parent="FacePivot" unique_id=1242524207]
+material = SubResource("ShaderMaterial_q6g6h")
+position = Vector2(-3.9854126, -0.3416748)
+sprite_frames = SubResource("SpriteFrames_igny8")
+animation = &"agitated"
+
+[node name="Blush" type="AnimatedSprite2D" parent="FacePivot" unique_id=1084000488]
+material = SubResource("ShaderMaterial_igny8")
+sprite_frames = SubResource("SpriteFrames_34lmm")
+animation = &"agitated"
+
+[node name="EyeLeft" type="Node2D" parent="FacePivot" unique_id=1547400447]
+
+[node name="EyePupilLeft" type="AnimatedSprite2D" parent="FacePivot/EyeLeft" unique_id=302497257]
+material = SubResource("ShaderMaterial_6k22r")
+position = Vector2(-92.14853, -17.561493)
+rotation = -6.2831855
+sprite_frames = SubResource("SpriteFrames_uud7f")
+animation = &"agitated"
+offset = Vector2(92.14853, 17.561493)
+
+[node name="EyeRight" type="Node2D" parent="FacePivot" unique_id=48167740]
+
+[node name="EyePupilRight" type="AnimatedSprite2D" parent="FacePivot/EyeRight" unique_id=1234877500]
+material = SubResource("ShaderMaterial_6k22r")
+sprite_frames = SubResource("SpriteFrames_s60jv")
+animation = &"agitated"
+
+[node name="HipLeft" type="Marker2D" parent="FacePivot" unique_id=1434397369]
+position = Vector2(-136.41269, 192.90173)
+
+[node name="HipRight" type="Marker2D" parent="FacePivot" unique_id=1744187978]
+position = Vector2(99, 213)
+
+[node name="EyebrowLeft" type="AnimatedSprite2D" parent="FacePivot" unique_id=1582286392]
+material = SubResource("ShaderMaterial_7q2am")
+sprite_frames = SubResource("SpriteFrames_n50ks")
+animation = &"agitated"
+
+[node name="EyebrowRight" type="AnimatedSprite2D" parent="FacePivot" unique_id=810246255]
+material = SubResource("ShaderMaterial_7q2am")
+sprite_frames = SubResource("SpriteFrames_iwb5r")
+animation = &"agitated"
+
+[node name="Feature" type="AnimatedSprite2D" parent="FacePivot" unique_id=392452342]
+material = SubResource("ShaderMaterial_8sukj")
+rotation = 0.08552113
+scale = Vector2(1.0000001, 1.0000001)
+sprite_frames = SubResource("SpriteFrames_wb3ey")
+animation = &"agitated"
+
+[node name="HandLeft" type="Sprite2D" parent="." unique_id=1566493258]
+position = Vector2(-192, 136)
+texture = ExtResource("8_o35w5")
+offset = Vector2(192, -138)
+
+[node name="HandRight" type="Sprite2D" parent="." unique_id=1100084234]
+position = Vector2(194, 135)
+texture = ExtResource("9_27rad")
+offset = Vector2(-194, -137)
+
+[node name="DropShadow" type="Sprite2D" parent="." unique_id=847129480]
+texture = ExtResource("17_snbjn")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=429743263]
+rotation = 0.34382987
+sprite_frames = SubResource("SpriteFrames_im32d")
+
+[node name="Highlight" type="AnimatedSprite2D" parent="." unique_id=1970088500]
+position = Vector2(0, -1)
+rotation = 0.34382987
+sprite_frames = SubResource("SpriteFrames_rl05l")

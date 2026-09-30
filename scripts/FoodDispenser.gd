@@ -8,8 +8,19 @@ extends Node3D
 ## FoodPellet scene to instantiate.
 @export var pellet_scene: PackedScene
 @export var debug: bool = true
+## Added to the player's interact_range for this object only (meters along look ray).
+@export var interact_range_extra: float = 0.0
 
 const DEFAULT_PELLET_SCENE := "res://scenes/FoodPellet.tscn"
+
+
+func get_interaction_prompt() -> String:
+	if not FoodManager.can_buy_more():
+		return "Food sold out today"
+	var price: float = FoodManager.get_current_price()
+	if not MoneyManager.can_afford(price):
+		return "Need $%.2f for food pellet" % price
+	return "Buy food pellet for $%.2f? [E]" % price
 
 
 func interact() -> void:

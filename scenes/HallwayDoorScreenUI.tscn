@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://ds8h6m0vba8ik"]
+
+[ext_resource type="Script" uid="uid://br0adb5157ym0" path="res://scripts/HallwayDoorScreenUI.gd" id="1_trcko"]
+[ext_resource type="PackedScene" uid="uid://2qv3chwmc31b" path="res://scenes/UIScreenFX.tscn" id="2_trh28"]
+
+[node name="HallwayDoorScreenUI" type="Control" unique_id=554741875]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trcko")
+
+[node name="UIOutside" type="ColorRect" parent="." unique_id=1524914420]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -39.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.81960785, 0.36862746, 0.7764706, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UIOutside" unique_id=194970355]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -34.0
+offset_right = 128.5
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LockedLabel" type="Label" parent="UIOutside/VBoxContainer2" unique_id=1119648307]
+layout_mode = 2
+text = "locked"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIOutside/VBoxContainer2" unique_id=1827481079]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIOutside/VBoxContainer2/HBoxContainer" unique_id=1781251285]
+layout_mode = 2
+text = "unit: "
+
+[node name="UnitNumberLabel" type="Label" parent="UIOutside/VBoxContainer2/HBoxContainer" unique_id=615789953]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "216"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIOutside/VBoxContainer2" unique_id=1165370867]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIOutside/VBoxContainer2/HBoxContainer2" unique_id=48911524]
+layout_mode = 2
+text = "occupant: "
+
+[node name="OccupantLabel" type="Label" parent="UIOutside/VBoxContainer2/HBoxContainer2" unique_id=921009250]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "#0842321967370122-BKCF"
+
+[node name="UIInside" type="ColorRect" parent="." unique_id=23365798]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -174.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21176471, 0.6039216, 0.8745098, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIInside" unique_id=1410552779]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -22.0
+offset_right = 128.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LockedLabel" type="Label" parent="UIInside/VBoxContainer" unique_id=197788177]
+layout_mode = 2
+text = "locked"
+
+[node name="FX" parent="." unique_id=1598697701 instance=ExtResource("2_trh28")]
+visible = true
+layout_mode = 1

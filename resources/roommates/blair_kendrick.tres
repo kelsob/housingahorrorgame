@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://ctwd2ifnjn4oy"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "blair_kendrick"
+display_name = "Blair Kendrick"
+roommate_type = 14
+demand_description = "Absurdly helpful. Remembers your schedule better than you. Endgame: your room is their room. Fail state driver."
+sleep_modifier = 1.15
+nightly_bonus = 8
+night_event_chance = 0.15
+conflict_stability_penalty = 25

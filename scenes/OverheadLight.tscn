@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cwt56pior4674"]
+
+[node name="OmniLight3D" type="OmniLight3D" unique_id=1630041498]
+light_color = Color(0.54395115, 0.76697326, 0.8001079, 1)
+light_energy = 0.075
+light_size = 1.0
+shadow_enabled = true
+omni_range = 4.0
+omni_shadow_mode = 0

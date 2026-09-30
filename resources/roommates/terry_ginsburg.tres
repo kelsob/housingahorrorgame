@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://b7jylmu7xmnlq"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "terry_ginsburg"
+display_name = "Terry Ginsburg"
+roommate_type = 8
+demand_description = "Bathroom floor existentialist. Has no money, many feelings, one toothbrush."
+night_event_chance = 0.1
+conflict_stability_penalty = 5

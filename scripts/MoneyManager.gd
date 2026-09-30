@@ -1,6 +1,6 @@
 extends Node
 
-## Global money management. Earn from work, plasma, gambling. Spend on rent, food, thermostat.
+## Global money management. Earn from work, plasma, gambling. Spend on rent, food.
 ## Add as autoload (Project → Project Settings → Autoload) for global access.
 
 # -----------------------------------------------------------------------------

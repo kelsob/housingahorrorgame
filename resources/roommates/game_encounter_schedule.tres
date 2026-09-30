@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RoommateEncounterSchedule" format=3 uid="uid://bv4o0fbft0khl"]
+
+[ext_resource type="Script" uid="uid://bs22jxtwm2qmx" path="res://scripts/RoommateEncounterSchedule.gd" id="1"]
+[ext_resource type="Script" uid="uid://hjhwfyo08qhj" path="res://scripts/RoommateDaySchedule.gd" id="1_1lbal"]
+[ext_resource type="Resource" uid="uid://c8loxv6o50ed5" path="res://resources/roommates/schedule_day_1.tres" id="2"]
+[ext_resource type="Resource" uid="uid://by7ewhvevo10j" path="res://resources/roommates/schedule_day_2_example.tres" id="3"]
+[ext_resource type="Resource" uid="uid://25yny45p8rwy" path="res://resources/roommates/schedule_day_3.tres" id="4"]
+[ext_resource type="Resource" uid="uid://cg1g2657tjm0d" path="res://resources/roommates/schedule_day_4.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bbqnuny56o66v" path="res://resources/roommates/schedule_day_5.tres" id="6"]
+
+[resource]
+script = ExtResource("1")
+day_schedules = Array[ExtResource("1_1lbal")]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6")])

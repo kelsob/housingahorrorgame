@@ -1,0 +1,30 @@
+---
+description: Prevent Variant type-inference warnings in GDScript
+globs: **/*.gd
+alwaysApply: false
+---
+
+# GDScript Explicit Typing for Variant Sources
+
+- Do not rely on inferred type when a value comes from a Variant-returning API.
+- Explicitly type local variables and cast when needed.
+
+## Common cases
+
+```gdscript
+# BAD
+var next_id := _thought_queue.pop_front()
+
+# GOOD
+var next_id: String = String(_thought_queue.pop_front())
+```
+
+```gdscript
+# BAD
+var value := dict.get("key")
+
+# GOOD
+var value: int = int(dict.get("key", 0))
+```
+
+- Prefer explicit `: Type` on locals when reading from `Dictionary`, `Array`, `JSON`, signals, or generic containers.

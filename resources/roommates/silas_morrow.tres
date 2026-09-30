@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoommateData" format=3 uid="uid://d28x2i32dc0ol"]
+
+[ext_resource type="Script" uid="uid://maqekk730l2w" path="res://scripts/RoommateData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+character_id = "silas_morrow"
+display_name = "Dr. Silas Morrow"
+roommate_type = 15
+demand_description = "Quiet, professional, keeps ice in the freezer for no reason you want to know."
+nightly_theft = 25
+conflict_stability_penalty = 15

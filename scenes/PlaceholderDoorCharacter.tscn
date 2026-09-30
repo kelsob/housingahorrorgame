@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b3q8n3s7empj4"]
+
+[ext_resource type="PackedScene" uid="uid://bjtp07hlu3bli" path="res://assets/glb/char_gambler.glb" id="1_wmf0w"]
+
+[node name="DoorCharacter" type="Node3D" unique_id=1456713293]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="char_gambler" parent="." unique_id=1061565140 instance=ExtResource("1_wmf0w")]

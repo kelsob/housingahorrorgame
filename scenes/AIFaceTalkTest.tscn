@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://c4rw8r1dut7hh"]
+
+[ext_resource type="Script" uid="uid://lhcbgnd1q8jb" path="res://scripts/AIFaceTalkTest.gd" id="1_uofb6"]
+[ext_resource type="Script" uid="uid://cm3l2f7li6qos" path="res://scripts/AIFaceFocusMask.gd" id="2_mjmj1"]
+[ext_resource type="PackedScene" uid="uid://0qhl1c46qxnu" path="res://scenes/AIFace.tscn" id="3_5w5ip"]
+[ext_resource type="AudioStream" uid="uid://cettblhfgwn2w" path="res://addons/godot-voice-generator/sound/alphabet/high/a.wav" id="4_geqg0"]
+[ext_resource type="Script" uid="uid://ctm3o0o3hx5qf" path="res://addons/godot-voice-generator/voice_audio_stream_player.gd" id="5_2co8i"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hhalb"]
+streams_count = 1
+stream_0/stream = ExtResource("4_geqg0")
+
+[node name="AIFaceTalkTest" type="Control" unique_id=322687765]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uofb6")
+
+[node name="Stage" type="Control" parent="." unique_id=1494351481]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AIFace" parent="Stage" unique_id=435930785 instance=ExtResource("3_5w5ip")]
+position = Vector2(864, 312)
+
+[node name="AIFaceFocus" type="CanvasGroup" parent="Stage" unique_id=481862480]
+visible = false
+position = Vector2(312, 0)
+script = ExtResource("2_mjmj1")
+
+[node name="AIFace" parent="Stage/AIFaceFocus" unique_id=837826593 instance=ExtResource("3_5w5ip")]
+
+[node name="PreviewText" type="RichTextLabel" parent="." unique_id=1176170898]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -536.0
+offset_top = -144.0
+offset_right = -24.0
+offset_bottom = -104.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VoiceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1832603658]
+stream = SubResource("AudioStreamRandomizer_hhalb")
+script = ExtResource("5_2co8i")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=54526740]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -284.5
+offset_right = 568.0
+offset_bottom = 284.5
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=399515988]
+layout_mode = 2
+
+[node name="DialogueInput" type="TextEdit" parent="Panel/VBox" unique_id=1669747807]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+size_flags_vertical = 3
+text = "dfg dfgdfgsg"
+
+[node name="EmotionOption" type="OptionButton" parent="Panel/VBox" unique_id=1621905816]
+layout_mode = 2
+
+[node name="PoseOption" type="OptionButton" parent="Panel/VBox" unique_id=904232743]
+layout_mode = 2
+
+[node name="GestureRow" type="HBoxContainer" parent="Panel/VBox" unique_id=1797021238]
+layout_mode = 2
+
+[node name="WaveButton" type="Button" parent="Panel/VBox/GestureRow" unique_id=326838062]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "wave"
+
+[node name="FlapButton" type="Button" parent="Panel/VBox/GestureRow" unique_id=605507951]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "flap"
+
+[node name="SpeakRow" type="HBoxContainer" parent="Panel/VBox" unique_id=234168728]
+layout_mode = 2
+
+[node name="SpeakButton" type="Button" parent="Panel/VBox/SpeakRow" unique_id=1154750441]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "speak"
+
+[node name="StopButton" type="Button" parent="Panel/VBox/SpeakRow" unique_id=1783836668]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "stop"
+
+[node name="FaceMaskRow" type="HBoxContainer" parent="Panel/VBox" unique_id=1381348975]
+layout_mode = 2
+
+[node name="OnButton" type="Button" parent="Panel/VBox/FaceMaskRow" unique_id=1726937973]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "face mask on"
+
+[node name="OffButton" type="Button" parent="Panel/VBox/FaceMaskRow" unique_id=889675093]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "face mask off"

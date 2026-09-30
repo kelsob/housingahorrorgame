@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://c4yyubqiesiav"]
+
+[ext_resource type="PackedScene" uid="uid://cppf03tfdkljg" path="res://scenes/DialogChoicePanel.tscn" id="1_16mfh"]
+[ext_resource type="Script" uid="uid://b4hnluk40nwyh" path="res://scripts/DoorInteractionUI.gd" id="1_73bef"]
+[ext_resource type="AudioStream" uid="uid://cettblhfgwn2w" path="res://addons/godot-voice-generator/sound/alphabet/high/a.wav" id="3_dym7x"]
+[ext_resource type="Script" uid="uid://ctm3o0o3hx5qf" path="res://addons/godot-voice-generator/voice_audio_stream_player.gd" id="4_rtr2p"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yww6g"]
+streams_count = 1
+stream_0/stream = ExtResource("3_dym7x")
+
+[node name="DoorInteractionUI" type="Control" unique_id=977127174]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_73bef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1485589394]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -202.0
+offset_right = 260.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BodyTextPanel" type="PanelContainer" parent="VBoxContainer" unique_id=2033617963]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BodyTextPanel" unique_id=1417384697]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="BodyTextLabel" type="RichTextLabel" parent="VBoxContainer/BodyTextPanel/MarginContainer" unique_id=1741650737]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SingleDialogChoicePanel" parent="VBoxContainer" unique_id=983672585 instance=ExtResource("1_16mfh")]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MultipleChoiceContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=196636742]
+layout_mode = 2
+
+[node name="DialogChoicePanel1" parent="VBoxContainer/MultipleChoiceContainer" unique_id=607446920 instance=ExtResource("1_16mfh")]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DialogChoicePanel3" parent="VBoxContainer/MultipleChoiceContainer" unique_id=54952210 instance=ExtResource("1_16mfh")]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=316476363]
+stream = SubResource("AudioStreamRandomizer_yww6g")
+script = ExtResource("4_rtr2p")

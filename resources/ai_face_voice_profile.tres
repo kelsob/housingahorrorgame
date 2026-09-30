@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="VoiceProfile" format=3 uid="uid://bbw1ddr23ccbt"]
+
+[ext_resource type="Script" uid="uid://dvohe1baqhemk" path="res://scripts/VoiceProfile.gd" id="1_voice"]
+
+[resource]
+script = ExtResource("1_voice")
+alphabet_pitch = "low"
+main_pitch_scale = 3.5
+question_pitch_scale = 1.2
+random_pitch = 1.05
+word_pause = 0.04
+punctuation_pause = 0.1
+syllable_size = 5
+word_cutting_percentage = 0.2
